@@ -4,7 +4,6 @@
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
 # User-specific stuff:
-.idea/**/workspace.xml
 .idea/**/tasks.xml
 .idea/dictionaries
 
@@ -17,7 +16,6 @@
 .idea/**/dynamic.xml
 .idea/**/uiDesigner.xml
 
-# Gradle:
 .idea/**/gradle.xml
 .idea/**/libraries
 
@@ -77,20 +75,11 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-
-.idea/encodings.xml
-
-.idea/misc.xml
-
-.idea/modules.xml
-
 .idea/nsr.iml
 
-.idea/vcs.xml
 
 .sass-cache/
 
 node_modules/
 
-.idea/inspectionProfiles/
-.idea/php.xml
+.idea
