@@ -1,7 +1,8 @@
-header {
+.site-header {
   background: $color__background-nav;
   box-shadow: 0 0 30px 0 rgba(30, 30, 30, 0.5);
   line-height: 100px;
+  z-index: 1000000;
 }
 
 .main-navigation {

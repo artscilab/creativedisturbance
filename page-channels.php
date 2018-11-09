@@ -15,7 +15,7 @@ get_header();
 
       <?php
       set_query_var('display_title', the_title('', '', false));
-      get_template_part('title');
+      get_template_part('template-parts/title');
       ?>
       <?php
       while ( have_posts() ) :

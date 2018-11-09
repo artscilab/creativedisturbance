@@ -11,7 +11,10 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+    <?php
+    set_query_var('display_title', the_title('', '', false));
+    get_template_part('template-parts/title');
+    ?>
 	</header><!-- .entry-header -->
 
 	<?php creativedisturbance_post_thumbnail(); ?>

@@ -6,11 +6,11 @@
  * Time: 12:19 PM
  */
 
-$title = get_query_var('title');
+$title = get_query_var('display_title');
 ?>
 
-<div class="jumbotron jumbotron-fluid">
+<div class="jumbotron jumbotron-fluid jumbotron-title">
   <div class="container">
-    <h1 class="display-4"><?php echo $title ?></h1>
+    <h1 class="display-3"><?php echo $title ?></h1>
   </div>
 </div>
