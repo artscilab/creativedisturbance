@@ -120,8 +120,8 @@ add_action( 'widgets_init', 'creativedisturbance_widgets_init' );
  * Enqueue scripts and styles.
  */
 function creativedisturbance_scripts() {
-	wp_enqueue_style( 'creativedisturbance-style', get_stylesheet_uri() );
 	wp_enqueue_style('bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css');
+	wp_enqueue_style( 'creativedisturbance-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'creativedisturbance-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 

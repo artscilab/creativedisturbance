@@ -9,13 +9,8 @@
       <?php
       $params = array('limit' => -1);
       $podcasts = pods('podcast', $params);
-
-      $allCountries = array();
-      $allArtDisciplines = array();
-      $allScienceDisciplines = array();
-      $allInstitutions = array();
-
       ?>
+
 
     </main><!-- #main -->
   </div><!-- #primary -->

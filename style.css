@@ -412,9 +412,17 @@ html {
   /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
   box-sizing: inherit; }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%; }
+
 body {
-  background: #212121;
-  /* Fallback for when there is no custom background color defined. */ }
+  background: #212121; }
+
+.site {
+  min-height: 100%;
+  position: relative; }
 
 hr {
   background-color: #f4B300;
@@ -622,12 +630,14 @@ header {
   text-align: right;
   width: 50%; }
 
-html, body, .site, .site-content {
-  height: 100%; }
-
 footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   display: flex;
-  padding: 50px;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
   background: #424242; }
 
 /*--------------------------------------------------------------

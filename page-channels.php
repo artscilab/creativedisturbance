@@ -12,12 +12,20 @@ get_header();
 
   <div id="primary" class="content-area">
     <main id="main" class="site-main">
-      <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+
+      <?php
+      set_query_var('display_title', the_title('', '', false));
+      get_template_part('title');
+      ?>
       <?php
       while ( have_posts() ) :
         the_post();
+        get_template_part( 'template-parts/page/content', 'page' );
 
       endwhile; ?>
 
     </main>
   </div>
+
+<?php
+get_footer();

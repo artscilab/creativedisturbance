@@ -1,9 +1,10 @@
-html, body, .site, .site-content {
-  height: 100%;
-}
-
 footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   display: flex;
-  padding: 50px;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
   background: $color__background-nav;
 }
