@@ -352,8 +352,8 @@ input,
 select,
 optgroup,
 textarea {
-  color: #404040;
-  font-family: sans-serif;
+  color: #FAFAFA;
+  font-family: "Raleway", sans-serif;
   font-size: 16px;
   font-size: 1rem;
   line-height: 1.5; }
@@ -413,11 +413,11 @@ html {
   box-sizing: inherit; }
 
 body {
-  background: #fff;
+  background: #212121;
   /* Fallback for when there is no custom background color defined. */ }
 
 hr {
-  background-color: #ccc;
+  background-color: #f4B300;
   border: 0;
   height: 1px;
   margin-bottom: 1.5em; }
@@ -466,7 +466,7 @@ input[type="submit"] {
   border: 1px solid;
   border-color: #ccc #ccc #bbb;
   border-radius: 3px;
-  background: #e6e6e6;
+  background: #f4B300;
   color: rgba(0, 0, 0, 0.8);
   font-size: 12px;
   font-size: 0.75rem;
@@ -537,11 +537,11 @@ textarea {
 ## Links
 --------------------------------------------------------------*/
 a {
-  color: royalblue; }
+  color: #f4B300; }
   a:visited {
-    color: purple; }
+    color: #c18e00; }
   a:hover, a:focus, a:active {
-    color: midnightblue; }
+    color: #ffc628; }
   a:focus {
     outline: thin dotted; }
   a:hover, a:active {
@@ -550,11 +550,13 @@ a {
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
+header {
+  background: #424242;
+  box-shadow: 0 0 30px 0 rgba(30, 30, 30, 0.5);
+  line-height: 100px; }
+
 .main-navigation {
-  clear: both;
-  display: block;
-  float: left;
-  width: 100%; }
+  display: block; }
   .main-navigation ul {
     display: none;
     list-style: none;
@@ -566,7 +568,8 @@ a {
       position: absolute;
       top: 100%;
       left: -999em;
-      z-index: 99999; }
+      z-index: 99999;
+      line-height: 18px; }
       .main-navigation ul ul ul {
         left: -999em;
         top: 0; }
@@ -582,7 +585,8 @@ a {
     position: relative; }
   .main-navigation a {
     display: block;
-    text-decoration: none; }
+    text-decoration: none;
+    padding: 10px 15px; }
 
 /* Small menu. */
 .menu-toggle,
@@ -590,6 +594,16 @@ a {
   display: block; }
 
 @media screen and (min-width: 37.5em) {
+  .site-header {
+    display: flex;
+    height: 100px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px; }
+    .site-header .site-branding {
+      flex: 1; }
+
   .menu-toggle {
     display: none; }
 
@@ -608,6 +622,14 @@ a {
   text-align: right;
   width: 50%; }
 
+html, body, .site, .site-content {
+  height: 100%; }
+
+footer {
+  display: flex;
+  padding: 50px;
+  background: #424242; }
+
 /*--------------------------------------------------------------
 # Accessibility
 --------------------------------------------------------------*/
@@ -625,7 +647,7 @@ a {
   word-wrap: normal !important;
   /* Many screen reader and browser combinations announce broken words as they would appear visually. */ }
   .screen-reader-text:focus {
-    background-color: #f1f1f1;
+    background-color: #424242;
     border-radius: 3px;
     box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
     clip: auto !important;

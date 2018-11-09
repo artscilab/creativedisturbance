@@ -1,0 +1,9 @@
+html, body, .site, .site-content {
+  height: 100%;
+}
+
+footer {
+  display: flex;
+  padding: 50px;
+  background: $color__background-nav;
+}
