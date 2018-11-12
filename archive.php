@@ -22,7 +22,7 @@ get_header();
         <div class="container">
           <?php
           while ( have_posts() ) : ?>
-            <div class="row">
+            <div class="row justify-content-center podcast-archive-row">
               <?php
               the_post();
               get_template_part( 'template-parts/content', get_post_type() );

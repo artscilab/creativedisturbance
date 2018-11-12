@@ -1,6 +1,19 @@
+.jumbotron {
+  margin-bottom: 0;
+}
 .jumbotron-title {
   background: transparent;
   p {
     font-size: 1.35rem;
   }
+}
+
+.podcast-archive-row {
+  margin-bottom: 50px;
+}
+
+.podcast-archive-item {
+  padding: 50px;
+  background: $color__background-light;
+  box-shadow: $box-shadow;
 }

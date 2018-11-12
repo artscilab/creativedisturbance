@@ -545,11 +545,17 @@ textarea {
 ## Links
 --------------------------------------------------------------*/
 a {
-  color: #f4B300; }
+  color: #f4B300;
+  transition: .2s ease;
+  padding: 0 2px; }
   a:hover, a:focus, a:active {
     color: #ffc628; }
   a:focus {
-    outline: thin dotted; }
+    outline: 0; }
+  a:hover:not(.nav-link) {
+    background-color: #f4B300;
+    color: #212121;
+    text-decoration: none; }
   a:hover, a:active {
     outline: 0; }
 
@@ -557,7 +563,9 @@ a {
 ## Menus
 --------------------------------------------------------------*/
 .navbar {
-  box-shadow: 0 5px 30px 0 rgba(30, 30, 30, 0.5); }
+  box-shadow: 0 5px 30px 0 rgba(30, 30, 30, 0.5);
+  padding: 0 50px;
+  line-height: 50px; }
 
 .navbar-dark .navbar-nav .active > .nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show > .nav-link {
   color: #f4B300; }
@@ -567,13 +575,14 @@ a {
   left: inherit;
   margin-top: 15px;
   background-color: #424242 !important;
-  box-shadow: 0 5px 30px 0 rgba(30, 30, 30, 0.5); }
+  box-shadow: 0 5px 30px 0 rgba(30, 30, 30, 0.5);
+  line-height: 22px; }
   .dropdown-menu a {
     transition: all .2s ease;
     color: rgba(255, 255, 255, 0.5); }
     .dropdown-menu a:hover {
-      color: #424242;
-      background-color: #f4B300; }
+      color: #f4B300;
+      background-color: inherit; }
 
 .bg-dark {
   background-color: #424242 !important; }
@@ -798,9 +807,20 @@ object {
 .gallery-caption {
   display: block; }
 
+.jumbotron {
+  margin-bottom: 0; }
+
 .jumbotron-title {
   background: transparent; }
   .jumbotron-title p {
     font-size: 1.35rem; }
+
+.podcast-archive-row {
+  margin-bottom: 50px; }
+
+.podcast-archive-item {
+  padding: 50px;
+  background: #616161;
+  box-shadow: 0 5px 30px 0 rgba(30, 30, 30, 0.5); }
 
 /*# sourceMappingURL=style.css.map */

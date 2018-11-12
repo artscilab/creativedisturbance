@@ -10,7 +10,7 @@
 
 <div class="jumbotron jumbotron-fluid jumbotron-title">
   <div class="container">
-    <div class="row ">
+    <div class="row align-items-center">
       <div class="col-sm-4">
         <img src="https://unsplash.it/500">
       </div>
