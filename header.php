@@ -24,22 +24,24 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'creativedisturbance' ); ?></a>
 
-	<header id="masthead" class="site-header">
-      <div class="site-branding">
-        <?php
-        the_custom_logo();
-        ?>
-      </div>
+	<nav role="navigation" id="masthead" class="navbar navbar-dark bg-dark navbar-expand-md">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-      <nav id="site-navigation" class="main-navigation">
-        <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'creativedisturbance' ); ?></button>
-        <?php
-        wp_nav_menu( array(
-          'theme_location' => 'menu-1',
-          'menu_id'        => 'primary-menu',
-        ) );
-        ?>
-      </nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+      <?php
+      wp_nav_menu( array(
+        'theme_location'  => 'primary',
+        'depth'	          => 2, // 1 = no dropdowns, 2 = with dropdowns.
+        'container'       => 'div',
+        'container_class' => 'collapse navbar-collapse',
+        'container_id'    => 'navbarSupportedContent',
+        'menu_class'      => 'navbar-nav ml-auto',
+        'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
+        'walker'          => new WP_Bootstrap_Navwalker(),
+      ) );
+      ?>
+  </nav><!-- #site-navigation -->
 
 	<div id="content" class="site-content">

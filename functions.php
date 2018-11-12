@@ -47,6 +47,10 @@ if ( ! function_exists( 'creativedisturbance_setup' ) ) :
 			'menu-1' => esc_html__( 'Primary', 'creativedisturbance' ),
 		) );
 
+    register_nav_menus( array(
+      'primary' => __( 'Bootstrap Menu', 'creativedisturbance'),
+    ) );
+
 		/*
 		 * Switch default core markup for search form, comment form, and comments
 		 * to output valid HTML5.
@@ -123,7 +127,9 @@ function creativedisturbance_scripts() {
 	wp_enqueue_style('bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css');
 	wp_enqueue_style( 'creativedisturbance-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'creativedisturbance-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+
+	wp_enqueue_script( 'popper-js', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', array(), '1', true );
+  wp_enqueue_script( 'bootstrap-js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js', array(), '1', true );
 
 	wp_enqueue_script( 'creativedisturbance-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
@@ -137,6 +143,14 @@ function creativedisturbance_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'creativedisturbance_scripts' );
+
+if ( ! file_exists( get_template_directory() . '/class-wp-bootstrap-navwalker.php' ) ) {
+  // file does not exist... return an error.
+  return new WP_Error( 'class-wp-bootstrap-navwalker-missing', __( 'It appears the class-wp-bootstrap-navwalker.php file may be missing.', 'wp-bootstrap-navwalker' ) );
+} else {
+  // file exists... require it.
+  require_once get_template_directory() . '/class-wp-bootstrap-navwalker.php';
+}
 
 /**
  * Implement the Custom Header feature.

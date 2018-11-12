@@ -546,8 +546,6 @@ textarea {
 --------------------------------------------------------------*/
 a {
   color: #f4B300; }
-  a:visited {
-    color: #c18e00; }
   a:hover, a:focus, a:active {
     color: #ffc628; }
   a:focus {
@@ -558,78 +556,27 @@ a {
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
-.site-header {
-  background: #424242;
-  box-shadow: 0 0 30px 0 rgba(30, 30, 30, 0.5);
-  line-height: 100px;
-  z-index: 1000000; }
+.navbar {
+  box-shadow: 0 5px 30px 0 rgba(30, 30, 30, 0.5); }
 
-.main-navigation {
-  display: block; }
-  .main-navigation ul {
-    display: none;
-    list-style: none;
-    margin: 0;
-    padding-left: 0; }
-    .main-navigation ul ul {
-      box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-      float: left;
-      position: absolute;
-      top: 100%;
-      left: -999em;
-      z-index: 99999;
-      line-height: 18px; }
-      .main-navigation ul ul ul {
-        left: -999em;
-        top: 0; }
-      .main-navigation ul ul li:hover > ul, .main-navigation ul ul li.focus > ul {
-        left: 100%; }
-      .main-navigation ul ul a {
-        width: 200px; }
-    .main-navigation ul li:hover > ul,
-    .main-navigation ul li.focus > ul {
-      left: auto; }
-  .main-navigation li {
-    float: left;
-    position: relative; }
-  .main-navigation a {
-    display: block;
-    text-decoration: none;
-    padding: 10px 15px; }
+.navbar-dark .navbar-nav .active > .nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show > .nav-link {
+  color: #f4B300; }
 
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-  display: block; }
+.dropdown-menu {
+  right: 0;
+  left: inherit;
+  margin-top: 15px;
+  background-color: #424242 !important;
+  box-shadow: 0 5px 30px 0 rgba(30, 30, 30, 0.5); }
+  .dropdown-menu a {
+    transition: all .2s ease;
+    color: rgba(255, 255, 255, 0.5); }
+    .dropdown-menu a:hover {
+      color: #424242;
+      background-color: #f4B300; }
 
-@media screen and (min-width: 37.5em) {
-  .site-header {
-    display: flex;
-    height: 100px;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 0 20px; }
-    .site-header .site-branding {
-      flex: 1; }
-
-  .menu-toggle {
-    display: none; }
-
-  .main-navigation ul {
-    display: block; } }
-.site-main .comment-navigation,
-.site-main .posts-navigation,
-.site-main .post-navigation {
-  margin: 0 0 1.5em;
-  overflow: hidden; }
-.comment-navigation .nav-previous, .posts-navigation .nav-previous, .post-navigation .nav-previous {
-  float: left;
-  width: 50%; }
-.comment-navigation .nav-next, .posts-navigation .nav-next, .post-navigation .nav-next {
-  float: right;
-  text-align: right;
-  width: 50%; }
+.bg-dark {
+  background-color: #424242 !important; }
 
 footer {
   position: absolute;
