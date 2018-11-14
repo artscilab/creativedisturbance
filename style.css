@@ -422,7 +422,8 @@ body {
 
 .site {
   min-height: 100%;
-  position: relative; }
+  position: relative;
+  padding-bottom: 150px; }
 
 hr {
   background-color: #f4B300;
