@@ -425,6 +425,9 @@ body {
   position: relative;
   padding-bottom: 150px; }
 
+.no-sidebar .site {
+  padding-bottom: 250px; }
+
 hr {
   background-color: #f4B300;
   border: 0;
@@ -703,9 +706,6 @@ footer {
 .sticky {
   display: block; }
 
-.hentry {
-  margin: 0 0 1.5em; }
-
 .updated:not(.published) {
   display: none; }
 
@@ -816,12 +816,26 @@ object {
   .jumbotron-title p {
     font-size: 1.35rem; }
 
-.podcast-archive-row {
-  margin-bottom: 50px; }
-
 .podcast-archive-item {
-  padding: 50px;
-  background: #616161;
+  padding: 35px; }
+
+.series-accordion {
   box-shadow: 0 5px 30px 0 rgba(30, 30, 30, 0.5); }
+  .series-accordion .podcast-archive-item .title-link:hover {
+    background-color: transparent;
+    color: #FAFAFA; }
+  .series-accordion .card-header {
+    background: #616161; }
+  .series-accordion .card {
+    background: #424242; }
+  .series-accordion .btn {
+    text-decoration: none;
+    color: #FAFAFA;
+    display: block;
+    text-align: left;
+    white-space: normal; }
+
+.section-title {
+  margin-bottom: 50px; }
 
 /*# sourceMappingURL=style.css.map */

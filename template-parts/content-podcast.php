@@ -12,12 +12,10 @@ if ( is_singular() ) :
   set_query_var('display_title', the_title('', '', false));
   get_template_part('template-parts/title');
 else: ?>
-<div class="col-sm-8 podcast-archive-item">
+<div class="podcast-archive-item">
   <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-    <?php
-    the_title('<h2 class="podcast-archive-title">', '</h2>');
-    ?>
-
+    <a class="title-link" href="<?php get_permalink(the_ID()) ?>"><?php the_title('<h2  class="podcast-archive-title">', '</h2>'); ?>
+    </a>
     <div class="entry-content">
       <?php
       the_content( sprintf(

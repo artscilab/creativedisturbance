@@ -24,6 +24,12 @@ body {
   padding-bottom: 150px;
 }
 
+.no-sidebar {
+  .site {
+    padding-bottom: 250px;
+  }
+}
+
 hr {
   background-color: $color__background-hr;
   border: 0;

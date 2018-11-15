@@ -8,12 +8,35 @@
   }
 }
 
-.podcast-archive-row {
-  margin-bottom: 50px;
+.podcast-archive-item {
+  padding: 35px;
 }
 
-.podcast-archive-item {
-  padding: 50px;
-  background: $color__background-light;
+.series-accordion {
   box-shadow: $box-shadow;
+
+  .podcast-archive-item .title-link {
+    &:hover {
+      background-color: transparent;
+      color: $color__text-main
+    }
+  }
+
+  .card-header {
+    background: $color__background-light;
+  }
+  .card {
+    background: $color__background-medium
+  }
+  .btn {
+    text-decoration: none;
+    color: $color__text-main;
+    display: block;
+    text-align: left;
+    white-space: normal;
+  }
+}
+
+.section-title {
+  margin-bottom: 50px;
 }
