@@ -3,8 +3,15 @@
 }
 .jumbotron-title {
   background: transparent;
+
   p {
     font-size: 1.35rem;
+  }
+}
+
+.jumbotron-podcast-single {
+  h1 {
+    margin-top: .35em;
   }
 }
 
@@ -39,4 +46,10 @@
 
 .section-title {
   margin-bottom: 50px;
+}
+
+.podcast-single-body {
+  .podcast_player, .podcast_meta {
+    margin: 0 auto;
+  }
 }

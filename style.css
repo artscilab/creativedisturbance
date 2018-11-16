@@ -816,6 +816,9 @@ object {
   .jumbotron-title p {
     font-size: 1.35rem; }
 
+.jumbotron-podcast-single h1 {
+  margin-top: .35em; }
+
 .podcast-archive-item {
   padding: 35px; }
 
@@ -837,5 +840,8 @@ object {
 
 .section-title {
   margin-bottom: 50px; }
+
+.podcast-single-body .podcast_player, .podcast-single-body .podcast_meta {
+  margin: 0 auto; }
 
 /*# sourceMappingURL=style.css.map */
