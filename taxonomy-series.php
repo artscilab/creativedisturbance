@@ -14,11 +14,11 @@ get_header();
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
-		<?php if ( have_posts() ) : ?>
-				<?php
-        set_query_var('display_title', get_the_archive_title());
-        get_template_part('template-parts/title', get_post_type());
-				?>
+		<?php
+    if ( have_posts() ) :
+      set_query_var('display_title', get_the_archive_title());
+      get_template_part('template-parts/title', get_post_type());
+    ?>
       <div class="container-fluid">
         <div class="container">
           <div class="row">
@@ -48,8 +48,7 @@ get_header();
                       </div>
                     </div>
                   </div>
-                  <?php $i++; ?>
-                <?php endwhile; ?>
+                  <?php $i++; endwhile; ?>
               </div>
             </div>
           </div>

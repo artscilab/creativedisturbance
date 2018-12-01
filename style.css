@@ -844,4 +844,22 @@ object {
 .podcast-single-body .podcast_player, .podcast-single-body .podcast_meta {
   margin: 0 auto; }
 
+.all-channels-row {
+  margin-bottom: 50px; }
+
+.link-block {
+  display: block;
+  color: inherit; }
+
+.link-channel {
+  padding: 15px; }
+  .link-channel h3 {
+    margin-bottom: 0; }
+  .link-channel img {
+    margin-bottom: 15px; }
+  .link-channel p {
+    margin-bottom: 0; }
+  .link-channel .text-muted {
+    margin-bottom: 10px; }
+
 /*# sourceMappingURL=style.css.map */
