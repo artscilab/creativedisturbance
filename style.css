@@ -824,9 +824,12 @@ object {
 
 .series-accordion {
   box-shadow: 0 5px 30px 0 rgba(30, 30, 30, 0.5); }
-  .series-accordion .podcast-archive-item .title-link:hover {
+  .series-accordion .podcast-archive-item .title-link {
     background-color: transparent;
-    color: #FAFAFA; }
+    color: #FAFAFA;
+    margin-bottom: 15px; }
+  .series-accordion .entry-content {
+    margin-top: 0; }
   .series-accordion .card-header {
     background: #616161; }
   .series-accordion .card {
@@ -837,6 +840,10 @@ object {
     display: block;
     text-align: left;
     white-space: normal; }
+  .series-accordion .btn-podcast-listen {
+    display: inline-block;
+    background: transparent;
+    border: 3px solid #f4B300; }
 
 .section-title {
   margin-bottom: 50px; }

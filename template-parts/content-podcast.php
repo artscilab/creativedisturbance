@@ -45,7 +45,7 @@ if ( is_singular() ) :
       <?php
       the_excerpt();
       ?>
-      <a class="btn btn-primary" href="<?php the_permalink(get_the_ID()) ?>">Listen -></a>
+      <a class="btn-podcast-listen btn btn-primary" href="<?php the_permalink(get_the_ID()) ?>">Listen -></a>
     </div><!-- .entry-content -->
   </article>
 </div>

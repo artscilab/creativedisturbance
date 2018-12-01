@@ -23,10 +23,13 @@
   box-shadow: $box-shadow;
 
   .podcast-archive-item .title-link {
-    &:hover {
-      background-color: transparent;
-      color: $color__text-main
-    }
+    background-color: transparent;
+    color: $color__text-main;
+    margin-bottom: 15px;
+  }
+
+  .entry-content {
+    margin-top: 0;
   }
 
   .card-header {
@@ -41,6 +44,11 @@
     display: block;
     text-align: left;
     white-space: normal;
+  }
+  .btn-podcast-listen {
+    display: inline-block;
+    background: transparent;
+    border: 3px solid $color__primary;
   }
 }
 
