@@ -180,3 +180,9 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+// Custom CSS for the login page
+// Create wp-login.css in your theme folder
+function wpfme_loginCSS() {
+  echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('template_directory').'/style.css"/>';
+}
+add_action('login_head', 'wpfme_loginCSS');

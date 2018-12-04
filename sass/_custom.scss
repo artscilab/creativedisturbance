@@ -19,6 +19,23 @@
   padding: 35px;
 }
 
+.post-listing {
+  margin-bottom: 35px;
+}
+.post {
+  hr {
+    width: 50px;
+    height: 3px;
+    background: $color__primary;
+    outline: none;
+    border: none;
+    margin: 0 auto 4rem auto;
+  }
+  .post-content {
+    font-size: 18px;
+  }
+}
+
 .series-accordion {
   box-shadow: $box-shadow;
 
@@ -86,5 +103,37 @@
 
   .text-muted {
     margin-bottom: 10px;
+  }
+}
+
+#login {
+  .message {
+    color: $color__text-input
+  }
+
+  #loginform, #lostpasswordform {
+    background: $color__background-medium;
+
+    .button-primary {
+      background: $color__primary;
+      border-bottom-color: darken($color__primary, 20);
+      text-shadow: none;
+      color: $color__background-body;
+    }
+    p {
+      label {
+        color: $color__text-main
+      }
+    }
+  }
+
+  #nav, #backtoblog {
+    a {
+      color: $color__primary;
+
+      &:hover {
+        color: $color__background-body;
+      }
+    }
   }
 }
