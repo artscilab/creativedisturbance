@@ -72,14 +72,8 @@
   .btn {
     text-decoration: none;
     color: $color__text-main;
-    display: block;
     text-align: left;
     white-space: normal;
-  }
-  .btn-podcast-listen {
-    display: inline-block;
-    background: transparent;
-    border: 3px solid $color__primary;
   }
 }
 

@@ -476,28 +476,20 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-  border: 1px solid;
-  border-color: #ccc #ccc #bbb;
-  border-radius: 3px;
-  background: #f4B300;
-  color: rgba(0, 0, 0, 0.8);
-  font-size: 12px;
-  font-size: 0.75rem;
-  line-height: 1;
-  padding: .6em 1em .4em; }
+  background: transparent;
+  border: 3px solid #f4B300; }
   button:hover,
   input[type="button"]:hover,
   input[type="reset"]:hover,
   input[type="submit"]:hover {
-    border-color: #ccc #bbb #aaa; }
-  button:active, button:focus,
-  input[type="button"]:active,
-  input[type="button"]:focus,
-  input[type="reset"]:active,
-  input[type="reset"]:focus,
-  input[type="submit"]:active,
-  input[type="submit"]:focus {
-    border-color: #aaa #bbb #bbb; }
+    background-color: #f4B300;
+    border-color: #f4B300;
+    color: #212121; }
+
+.btn-outline {
+  display: inline-block;
+  background: transparent;
+  border: 3px solid #f4B300; }
 
 input[type="text"],
 input[type="email"],
@@ -859,13 +851,8 @@ object {
   .series-accordion .btn {
     text-decoration: none;
     color: #FAFAFA;
-    display: block;
     text-align: left;
     white-space: normal; }
-  .series-accordion .btn-podcast-listen {
-    display: inline-block;
-    background: transparent;
-    border: 3px solid #f4B300; }
 
 .section-title {
   margin-bottom: 50px; }
