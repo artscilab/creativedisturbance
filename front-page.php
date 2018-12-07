@@ -1,21 +1,20 @@
 <?php
   get_header();
-
   ?>
 
-  <div id="primary" class="content-area">
-    <main id="main" class="site-main">
-
-      <?php
-      $params = array('limit' => -1);
-      $podcasts = pods('podcast', $params);
-      ?>
-
-
-    </main><!-- #main -->
-  </div><!-- #primary -->
-
-
+  <?php
+  $channels = get_terms(array(
+    'taxonomy' => 'series',
+    'hide_empty' => false
+  ));
+  ?>
+  <div class="container-fluid home-map-container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div id="map"></div>
+      </div>
+    </div>
+  </div>
 
 <?php
 get_footer();

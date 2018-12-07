@@ -362,7 +362,8 @@ h1, h2, h3, h4, h5, h6 {
   clear: both; }
 
 p {
-  margin-bottom: 1.5em; }
+  margin-bottom: 1.5em;
+  font-size: 18px; }
 
 dfn, cite, em, i {
   font-style: italic; }
@@ -825,15 +826,23 @@ object {
 .post-listing {
   margin-bottom: 35px; }
 
-.post hr {
+.post hr, .page hr {
   width: 50px;
   height: 3px;
   background: #f4B300;
   outline: none;
   border: none;
   margin: 0 auto 4rem auto; }
-.post .post-content {
+.post .post-content, .page .post-content {
   font-size: 18px; }
+.post .entry-content, .page .entry-content {
+  margin-top: 0; }
+  .post .entry-content p, .page .entry-content p {
+    color: #e1e1e1; }
+  .post .entry-content h3, .post .entry-content h4, .post .entry-content h5, .post .entry-content h6, .page .entry-content h3, .page .entry-content h4, .page .entry-content h5, .page .entry-content h6 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-weight: 700; }
 
 .series-accordion {
   box-shadow: 0 5px 30px 0 rgba(30, 30, 30, 0.5); }
@@ -897,5 +906,9 @@ object {
   color: #f4B300; }
   #login #nav a:hover, #login #backtoblog a:hover {
     color: #212121; }
+
+#map {
+  height: 800px;
+  margin-top: 50px; }
 
 /*# sourceMappingURL=style.css.map */

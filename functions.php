@@ -137,6 +137,7 @@ function creativedisturbance_scripts() {
 	if (is_front_page()) {
     wp_enqueue_style('mapbox-style', 'https://api.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css');
 	  wp_enqueue_script('mapbox', 'https://api.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js');
+    wp_enqueue_script('map', get_template_directory_uri() . '/js/map.js', array(), '0.0.1', true);
   }
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

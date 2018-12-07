@@ -61,7 +61,6 @@
         </footer><!-- .entry-footer -->
       </div>
 
-
     <?php else: ?>
       <div class="row post-listing">
         <div class="col-sm-8">
