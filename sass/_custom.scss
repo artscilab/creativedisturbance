@@ -168,7 +168,8 @@
   #masthead {
     background: transparent !important;
     box-shadow: none;
-
+    line-height: 80px;
+    
     a {
       color: lighten($color__background-body, 15);
 

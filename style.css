@@ -912,7 +912,8 @@ object {
       color: #3b3b3b; }
   .home #masthead {
     background: transparent !important;
-    box-shadow: none; }
+    box-shadow: none;
+    line-height: 80px; }
     .home #masthead a {
       color: #474747; }
       .home #masthead a:hover {
