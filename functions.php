@@ -124,6 +124,8 @@ add_action( 'widgets_init', 'creativedisturbance_widgets_init' );
  * Enqueue scripts and styles.
  */
 function creativedisturbance_scripts() {
+  wp_enqueue_style('raleway', 'https://fonts.googleapis.com/css?family=Raleway:300,400,400i,600,700');
+
 	wp_enqueue_style('bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css');
 
 	wp_enqueue_script('jquery-slim', 'https://code.jquery.com/jquery-3.3.1.slim.min.js', array(), '3.3.1', true);
