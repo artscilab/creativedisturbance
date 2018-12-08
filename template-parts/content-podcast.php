@@ -12,11 +12,18 @@ if ( is_singular() ) :
   set_query_var('display_title', the_title('', '', false));
   get_template_part('template-parts/title-podcast-single');
 
-  $seriesName = get_the_terms(get_the_ID(), 'series')[0]->name;
+  $series = get_the_terms(get_the_ID(), 'series')[0];
+  $seriesName = $series->name;
+  $media_id = get_term_meta( $series->term_id, 'podcast_series_image_settings', true );
+  $image_attributes = wp_get_attachment_image_src( $media_id, 'large' );
+  $src = $image_attributes[0];
   ?>
 
 <div class="container podcast-single-body">
   <div class="row justify-content-center">
+    <div class="col-sm-4">
+      <img src="<?php echo $src ?>" alt="<?php echo $seriesName . " art" ?>" class="img-responsive">
+    </div>
     <div class="col-sm-8">
       <?php
       the_content( sprintf(
