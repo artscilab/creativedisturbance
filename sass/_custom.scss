@@ -146,9 +146,18 @@
   }
 }
 
+.archive-title {
+  margin-bottom: 100px;
+}
+
 .home {
   background: $topograph;
   color: $color__text-main;
+
+  .site {
+    padding-bottom: 150px;
+  }
+
   a {
     color: $color__background-body;
 
@@ -206,7 +215,7 @@
   height: 25px;
   border-radius: 50%;
   box-shadow: 0 0 0 5px $color__primary;
-  transition: background .2s ease;
+  transition: background .3s ease;
   cursor: pointer;
 
   &:hover {
