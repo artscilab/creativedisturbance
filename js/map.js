@@ -4,7 +4,7 @@ let opts = {
   container: 'map',
   style: 'mapbox://styles/mapbox/dark-v9',
   zoom: 2,
-  pitch: 10,
+  pitch: 15,
   center: [-40.587286, 28.456455]
 };
 

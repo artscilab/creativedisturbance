@@ -907,7 +907,6 @@ object {
       color: #3b3b3b; }
   .home #masthead {
     background: transparent !important;
-    line-height: 80px;
     box-shadow: none; }
     .home #masthead a {
       color: #474747; }
