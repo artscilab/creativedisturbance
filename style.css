@@ -938,14 +938,23 @@ object {
   height: 600px; }
 
 .mapMarker {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
-  border: 5px solid #f4B300;
+  box-shadow: 0 0 0 5px #f4B300;
   transition: background .2s ease;
   cursor: pointer; }
   .mapMarker:hover {
     background: #f4B300; }
+  .mapMarker::before {
+    content: "";
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: #f4B300;
+    animation: markPulse 2s ease-out infinite; }
 
 .mapboxgl-popup {
   max-width: 400px; }
@@ -963,5 +972,16 @@ object {
 
 .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
   border-top-color: #424242; }
+
+@keyframes markPulse {
+  0% {
+    opacity: 1;
+    transform: scale(0, 0); }
+  99% {
+    opacity: 0;
+    transform: scale(2.2, 2.2); }
+  100% {
+    opacity: 0;
+    transform: scale(0, 0); } }
 
 /*# sourceMappingURL=style.css.map */

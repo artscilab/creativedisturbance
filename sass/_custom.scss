@@ -203,15 +203,26 @@
 }
 
 .mapMarker {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
-  border: 5px solid $color__primary;
+  box-shadow: 0 0 0 5px $color__primary;
   transition: background .2s ease;
   cursor: pointer;
 
   &:hover {
     background: $color__primary
+  }
+
+  &::before {
+    content: "";
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: $color__primary;
+    animation: markPulse 2s ease-out infinite;
   }
 }
 
@@ -237,4 +248,19 @@
 
 .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
   border-top-color: $color__background-medium;
+}
+
+@keyframes markPulse {
+  0% {
+    opacity: 1;
+    transform: scale(0, 0);
+  }
+  99% {
+    opacity: 0;
+    transform: scale(2.2, 2.2) ;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0, 0);
+  }
 }
