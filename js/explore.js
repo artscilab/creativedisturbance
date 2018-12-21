@@ -17,6 +17,11 @@ let topicSelect = new SlimSelect({
   data: categories,
 });
 
+languages.forEach((lang) => {
+  lang.text = decodeURIComponent(lang.text);
+  lang.value = decodeURIComponent(lang.value);
+});
+
 let languageSelect = new SlimSelect({
   select: '#languageSelect',
   data: languages

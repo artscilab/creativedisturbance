@@ -15,49 +15,49 @@
 get_header();
 
 /// Populate dropdowns ///
-$categoryParams = array(
+$dropdownCategoriesParams = array(
   'limit' => -1,
 );
-$categories = pods('podcast_category', $categoryParams);
-$categoriesArr = array();
-while($categories->fetch()) {
-  $catName = $categories->display('post_title');
-  array_push($categoriesArr, array(
+$dropdownCategories = pods('podcast_category', $dropdownCategoriesParams);
+$dropdownCategoriesArr = array();
+while($dropdownCategories->fetch()) {
+  $catName = $dropdownCategories->display('post_title');
+  array_push($dropdownCategoriesArr, array(
       'text' => $catName,
       'value' => str_replace(' ', '_', strtolower($catName))
     )
   );
 }
 
-$languageParams = array(
+$dropdownLanguagesParams = array(
   'limit' => -1,
 );
-$languages = pods('language', $languageParams);
-$languageArr= array(array('text' => 'All Languages', 'value' => 'all'));
-while($languages->fetch()) {
-  $lanName = $languages->display('name');
-  array_push($languageArr, array(
+$dropdownLanguages = pods('language', $dropdownLanguagesParams);
+$dropdownLanguagesArr= array(array('text' => 'All Languages', 'value' => 'all'));
+while($dropdownLanguages->fetch()) {
+  $lanName = ucwords($dropdownLanguages->display('post_name'));
+  array_push($dropdownLanguagesArr, array(
       'text' => $lanName,
-      'value' => str_replace(' ', '_', strtolower($lanName))
+      'value' => $dropdownLanguages->display('post_name')
     )
   );
 }
 
 /// Get Featured Posts ///
 $featuredParams = array(
-  'limit' => 15,
+  'limit' => 4,
   'where' => 'featured_on_homepage.meta_value = 1'
 );
-$podcasts = pods( 'podcast', $featuredParams );
+$featuredPodcasts = pods( 'podcast', $featuredParams );
 
 $featuredPosts = array();
-while ( $podcasts->fetch() ) {
-  $title = $podcasts->display('post_title');
-  $series = $podcasts->display('series');
-  $country = $podcasts->display('country');
-  $link = $podcasts->display('guid');
+while ( $featuredPodcasts->fetch() ) {
+  $title = $featuredPodcasts->display('post_title');
+  $series = $featuredPodcasts->display('series');
+  $country = $featuredPodcasts->display('country');
+  $link = $featuredPodcasts->display('guid');
 
-  $term = get_the_terms($podcasts->display('ID'), 'series')[0];
+  $term = get_the_terms($featuredPodcasts->display('ID'), 'series')[0];
   $seriesName = $term->name;
   $slug = $term->slug;
   $media_id = get_term_meta( $term->term_id, 'podcast_series_image_settings', true );
@@ -84,10 +84,114 @@ if (!empty($_SERVER['QUERY_STRING'])) {
     $queryParams[urldecode($name)][] = urldecode($value);
   }
 
-  if (in_array('thingSelect', $queryParams) &&
-    in_array('topicSelect', $queryParams) &&
-    in_array('languageSelect', $queryParams)) {
+  $showEpisodes = false;
+  $showChannels = false;
+  $showPeople = false;
+  $searchByTopic = false;
 
+  $filteredEpisodes = array();
+  $filteredChannels = array();
+  $filteredPeople = array();
+
+  if (array_key_exists('thingSelect', $queryParams) &&
+    array_key_exists('languageSelect', $queryParams)) {
+    switch($queryParams['thingSelect'][0] ) {
+      case 'episodes':
+        $showEpisodes = true;
+        break;
+      case 'channels':
+        $showChannels = true;
+        break;
+      case 'people':
+        $showPeople = true;
+        break;
+      case 'everything':
+        $showEpisodes = $showChannels = $showPeople = true;
+        break;
+    }
+
+    if (array_key_exists('topicSelect', $queryParams)) {
+      $searchByTopic = true;
+    }
+  }
+
+  if ($showEpisodes) {
+    if ($queryParams['languageSelect'][0] == 'all') {
+      $podcastParams = array(
+        'limit' => 10
+      );
+    } else {
+      $podcastParams = array(
+        'limit' => 10,
+        'where' => 'language.post_title = \'' . $queryParams['languageSelect'][0] . '\''
+      );
+    }
+    $podcasts = pods('podcast', $podcastParams);
+    while($podcasts->fetch()) {
+      $title = $podcasts->display('post_title');
+      $series = $podcasts->display('series');
+      $country = $podcasts->display('country');
+      $link = $podcasts->display('guid');
+      $language = $podcasts->display('language');
+
+      $term = get_the_terms($podcasts->display('ID'), 'series')[0];
+      $seriesName = $term->name;
+      $seriesLink = get_term_link($term->term_id);
+      $media_id = get_term_meta( $term->term_id, 'podcast_series_image_settings', true );
+      $image_attributes = wp_get_attachment_image_src( $media_id, 'large' );
+      $src = $image_attributes[0];
+
+      $categoryField = $podcasts->field('podcast_category');
+      $categories = array();
+      if (!empty($categoryField)) {
+        foreach ($categoryField as $category) {
+          array_push($categories, $category['post_title']);
+        }
+      }
+      $episode = array(
+        "title" => $title,
+        "series" => $series,
+        "country" => $country,
+        "link" => $link,
+        "imgSrc" => $src,
+        "language" => $language,
+        "categories" => $categories
+      );
+      array_push($filteredEpisodes, $episode);
+    }
+  }
+
+  if ($showChannels) {
+    if ($queryParams['languageSelect'][0] == 'all') {
+      $channelParams = array(
+        'limit' => 10
+      );
+    } else {
+      $channelParams = array(
+        'limit' => 10,
+        'where' => 'language.post_title = \'' . $queryParams['languageSelect'][0] . '\''
+      );
+    }
+
+    $channels = pods('series', $channelParams);
+    while($channels->fetch()) {
+      $name = $channels->display('name');
+      $id = $channels->display('term_id');
+      $language = $channels->display('language');
+
+      $link = get_term_link($id);
+      $media_id = get_term_meta( $id, 'podcast_series_image_settings', true );
+      $image_attributes = wp_get_attachment_image_src( $media_id, 'large' );
+      $src = $image_attributes[0];
+
+      $channel = array(
+        "name" => $name,
+        "link" => $link,
+        "imgSrc" => $src,
+        "language" => $language,
+      );
+      array_push($filteredChannels, $channel);
+    }
   }
 }
 ?>
@@ -144,8 +248,8 @@ if (!empty($_SERVER['QUERY_STRING'])) {
   </div>
 
   <script>
-    let categories = <?php echo json_encode($categoriesArr, JSON_HEX_TAG) ?>;
-    let languages = <?php echo json_encode($languageArr, JSON_HEX_TAG) ?>;
+    let categories = <?php echo json_encode($dropdownCategoriesArr, JSON_HEX_TAG) ?>;
+    let languages = <?php echo json_encode($dropdownLanguagesArr, JSON_HEX_TAG) ?>;
   </script>
 <?php
 get_footer();
