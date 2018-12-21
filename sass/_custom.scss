@@ -211,6 +211,71 @@
     margin-bottom: 50px;
   }
 
+  .explore-form-row {
+    font-size: 18px;
+    margin-bottom: 100px;
+
+    label {
+      margin-bottom: 0;
+      font-size: 22px;
+    }
+
+    > div {
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      width: 100%
+    }
+
+    @media (min-width: 768px) {
+      > div {
+        display: contents;
+      }
+    }
+  }
+
+  .explore-dropdown {
+    max-width: 150px;
+    margin-left: 15px;
+    margin-right: 15px;
+
+    .ss-single-selected, .ss-multi-selected, .ss-content {
+      background-color: $color__background-body;
+      border: none;
+      outline: none;
+      color: $color__text-main;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+
+    .ss-single-selected, .ss-multi-selected {
+      height: 100%;
+      padding: 15px;
+    }
+
+    .ss-option {
+      transition: all .2s ease;
+    }
+
+    .ss-content .ss-list .ss-option.ss-disabled {
+      background-color: $color__background-body;
+    }
+
+    .ss-content .ss-list .ss-option.ss-highlighted, .ss-content .ss-list .ss-option:hover {
+      background-color: $color__background-body;
+      color: $color__primary;
+    }
+  }
+
+  .explore-multi {
+    max-width: 300px;
+
+    .ss-values .ss-value {
+      color: $color__background-body !important;
+      background-color: $color__primary !important;
+    }
+  }
+
   .explore-featured-podcasts-items {
     .explore-featured-item {
       img {
@@ -232,9 +297,6 @@
     }
   }
 
-  .explore-form-row {
-    font-size: 50px;
-  }
 }
 
 .home-map-container {
@@ -280,8 +342,13 @@
   box-shadow: $box-shadow;
   padding: 20px;
 
+  h3 {
+    color: $color__text-main;
+  }
+
   p {
     margin-bottom: 10px;
+    color: $color__text-main;
   }
 
   a {

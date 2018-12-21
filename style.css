@@ -937,6 +937,46 @@ object {
   margin-bottom: 50px; }
 .explore-page .explore-featured-podcasts-title {
   margin-bottom: 50px; }
+.explore-page .explore-form-row {
+  font-size: 18px;
+  margin-bottom: 100px; }
+  .explore-page .explore-form-row label {
+    margin-bottom: 0;
+    font-size: 22px; }
+  .explore-page .explore-form-row > div {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    width: 100%; }
+  @media (min-width: 768px) {
+    .explore-page .explore-form-row > div {
+      display: contents; } }
+.explore-page .explore-dropdown {
+  max-width: 150px;
+  margin-left: 15px;
+  margin-right: 15px; }
+  .explore-page .explore-dropdown .ss-single-selected, .explore-page .explore-dropdown .ss-multi-selected, .explore-page .explore-dropdown .ss-content {
+    background-color: #212121;
+    border: none;
+    outline: none;
+    color: #FAFAFA;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px; }
+  .explore-page .explore-dropdown .ss-single-selected, .explore-page .explore-dropdown .ss-multi-selected {
+    height: 100%;
+    padding: 15px; }
+  .explore-page .explore-dropdown .ss-option {
+    transition: all .2s ease; }
+  .explore-page .explore-dropdown .ss-content .ss-list .ss-option.ss-disabled {
+    background-color: #212121; }
+  .explore-page .explore-dropdown .ss-content .ss-list .ss-option.ss-highlighted, .explore-page .explore-dropdown .ss-content .ss-list .ss-option:hover {
+    background-color: #212121;
+    color: #f4B300; }
+.explore-page .explore-multi {
+  max-width: 300px; }
+  .explore-page .explore-multi .ss-values .ss-value {
+    color: #212121 !important;
+    background-color: #f4B300 !important; }
 .explore-page .explore-featured-podcasts-items .explore-featured-item img {
   margin-bottom: 30px; }
 .explore-page .explore-featured-podcasts-items .explore-featured-item a {
@@ -947,8 +987,6 @@ object {
     margin-bottom: 10px; }
 .explore-page .explore-featured-podcasts-items .explore-featured-item p {
   margin-bottom: 10px; }
-.explore-page .explore-form-row {
-  font-size: 50px; }
 
 .home-map-container {
   margin: 0; }
@@ -984,8 +1022,11 @@ object {
   background: #424242;
   box-shadow: 0 5px 30px 0 rgba(30, 30, 30, 0.5);
   padding: 20px; }
+  .mapboxgl-popup-content h3 {
+    color: #FAFAFA; }
   .mapboxgl-popup-content p {
-    margin-bottom: 10px; }
+    margin-bottom: 10px;
+    color: #FAFAFA; }
   .mapboxgl-popup-content a {
     color: #FAFAFA; }
 

@@ -13,15 +13,42 @@
  */
 
 get_header();
-$channels = get_terms(array(
-  'taxonomy' => 'series',
-  'hide_empty' => false
-));
-$params = array(
+
+/// Populate dropdowns ///
+$categoryParams = array(
+  'limit' => -1,
+);
+$categories = pods('podcast_category', $categoryParams);
+$categoriesArr = array();
+while($categories->fetch()) {
+  $catName = $categories->display('post_title');
+  array_push($categoriesArr, array(
+      'text' => $catName,
+      'value' => str_replace(' ', '_', strtolower($catName))
+    )
+  );
+}
+
+$languageParams = array(
+  'limit' => -1,
+);
+$languages = pods('language', $languageParams);
+$languageArr= array(array('text' => 'All Languages', 'value' => 'all'));
+while($languages->fetch()) {
+  $lanName = $languages->display('name');
+  array_push($languageArr, array(
+      'text' => $lanName,
+      'value' => str_replace(' ', '_', strtolower($lanName))
+    )
+  );
+}
+
+/// Get Featured Posts ///
+$featuredParams = array(
   'limit' => 15,
   'where' => 'featured_on_homepage.meta_value = 1'
 );
-$podcasts = pods( 'podcast', $params );
+$podcasts = pods( 'podcast', $featuredParams );
 
 $featuredPosts = array();
 while ( $podcasts->fetch() ) {
@@ -47,6 +74,22 @@ while ( $podcasts->fetch() ) {
 
   array_push($featuredPosts, $post);
 }
+
+/// Handle form input ///
+if (!empty($_SERVER['QUERY_STRING'])) {
+  $query = explode('&', $_SERVER['QUERY_STRING']);
+  $queryParams = array();
+  foreach( $query as $param ) {
+    list($name, $value) = explode('=', $param, 2);
+    $queryParams[urldecode($name)][] = urldecode($value);
+  }
+
+  if (in_array('thingSelect', $queryParams) &&
+    in_array('topicSelect', $queryParams) &&
+    in_array('languageSelect', $queryParams)) {
+
+  }
+}
 ?>
   <div class="container">
     <div class="row site-title justify-content-center text-center">
@@ -58,9 +101,26 @@ while ( $podcasts->fetch() ) {
       </div>
     </div>
 
-    <form action="#">
-      <div class="form-row explore-form-row">
-
+    <form action="" method="get">
+      <div class="form-row explore-form-row justify-content-center align-items-center">
+        <div class="form-group">
+          <label for="thingSelect">See</label>
+          <select id="thingSelect" name="thingSelect" class="explore-dropdown">
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="topicSelect">Related to</label>
+          <select multiple id="topicSelect" name="topicSelect" class="explore-dropdown explore-multi">
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="languageSelect">in</label>
+          <select id="languageSelect" name="languageSelect" class="explore-dropdown">
+          </select>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Go</button>
+        </div>
       </div>
     </form>
 
@@ -83,5 +143,9 @@ while ( $podcasts->fetch() ) {
     </div>
   </div>
 
+  <script>
+    let categories = <?php echo json_encode($categoriesArr, JSON_HEX_TAG) ?>;
+    let languages = <?php echo json_encode($languageArr, JSON_HEX_TAG) ?>;
+  </script>
 <?php
 get_footer();
