@@ -276,6 +276,32 @@
     }
   }
 
+  .filtered-title {
+    margin-bottom: 50px;
+  }
+
+  .filtered-result-row {
+    margin-bottom: 50px;
+  }
+  .filtered-result {
+    a {
+      color: $color__background-body;
+      display: block;
+      padding: 25px;
+
+      &:hover {
+        color: $color__background-body;
+        background-color: $color__primary;
+      }
+
+      .lead {
+        margin-bottom: 10px;
+      }
+    }
+    img {
+      margin-bottom: 15px;
+    }
+  }
   .explore-featured-podcasts-items {
     .explore-featured-item {
       img {
@@ -296,7 +322,6 @@
       }
     }
   }
-
 }
 
 .home-map-container {

@@ -91,7 +91,8 @@ if (!empty($_SERVER['QUERY_STRING'])) {
 
   $filteredEpisodes = array();
   $filteredChannels = array();
-  $filteredPeople = array();
+  $filteredHosts = array();
+  $filteredVoices = array();
 
   if (array_key_exists('thingSelect', $queryParams) &&
     array_key_exists('languageSelect', $queryParams)) {
@@ -148,6 +149,7 @@ if (!empty($_SERVER['QUERY_STRING'])) {
           array_push($categories, $category['post_title']);
         }
       }
+
       $episode = array(
         "title" => $title,
         "series" => $series,
@@ -159,6 +161,7 @@ if (!empty($_SERVER['QUERY_STRING'])) {
       );
       array_push($filteredEpisodes, $episode);
     }
+    var_dump($filteredEpisodes);
   }
 
   if ($showChannels) {
@@ -188,9 +191,66 @@ if (!empty($_SERVER['QUERY_STRING'])) {
         "name" => $name,
         "link" => $link,
         "imgSrc" => $src,
-        "language" => $language,
+        "language" => $language
       );
       array_push($filteredChannels, $channel);
+    }
+  }
+
+  if ($showPeople) {
+    if ($queryParams['languageSelect'][0] == 'all') {
+      $peopleParams = array(
+        'limit' => 10
+      );
+    } else {
+      $peopleParams = array(
+        'limit' => 10,
+        'where' => 'language.post_title = \'' . $queryParams['languageSelect'][0] . '\''
+      );
+    }
+
+    $hosts = pods('host', $peopleParams);
+    while ($hosts->fetch()) {
+      $name = $hosts->display('post_title');
+      $email = $hosts->display('email');
+      $src = $hosts->display('profile_photo');
+      $job = $hosts->display('job_title');
+      $organization = $hosts->display('organization');
+      $language = $hosts->display('language');
+      $link = $hosts->display('guid');
+
+      $host = array(
+        "name" => $name,
+        "jobTitle" => $job,
+        "organization" => $organization,
+        "imgSrc" => $src,
+        "link" => $link,
+        "language" => $language
+      );
+
+      array_push($filteredHosts, $host);
+    }
+
+    $voices = pods('voice', $peopleParams);
+    while ($voices->fetch()) {
+      $name = $voices->display('post_title');
+      $email = $voices->display('email');
+      $src = $voices->display('profile_photo');
+      $job = $voices->display('job_title');
+      $organization = $voices->display('organization');
+      $language = $voices->display('language');
+      $link = $voices->display('guid');
+
+      $voice = array(
+        "name" => $name,
+        "jobTitle" => $job,
+        "organization" => $organization,
+        "imgSrc" => $src,
+        "link" => $link,
+        "language" => $language
+      );
+
+      array_push($filteredVoices, $voice);
     }
   }
 }
@@ -227,6 +287,83 @@ if (!empty($_SERVER['QUERY_STRING'])) {
         </div>
       </div>
     </form>
+
+    <?php if(!empty($filteredEpisodes)): ?>
+    <div class="row filtered-title filtered-episodes-title">
+      <div class="col col-sm-12 text-center">
+        <h2>Episodes</h2>
+      </div>
+    </div>
+    <div class="row filtered-episodes filtered-result-row justify-content-center">
+      <?php foreach ($filteredEpisodes as $episode): ?>
+      <div class="col col-sm-3 filtered-result filtered-episode">
+        <a href="<?php echo $episode['link'] ?>">
+          <img src="<?php echo $episode['imgSrc'] ?>" alt="" class="img-fluid">
+          <h3><?php echo wp_trim_words($episode['title'], 5) ?></h3>
+          <p class="lead"><?php echo $episode['series'] ?></p>
+          <p><?php echo $episode['language'] ?></p>
+        </a>
+      </div>
+      <?php endforeach; ?>
+    </div>
+    <?php endif; ?>
+
+    <?php if(!empty($filteredChannels)): ?>
+      <div class="row filtered-title filtered-channels-title">
+        <div class="col col-sm-12 text-center">
+          <h2>Channels</h2>
+        </div>
+      </div>
+      <div class="row filtered-channels filtered-result-row justify-content-center">
+        <?php foreach ($filteredChannels as $channel): ?>
+          <div class="col col-sm-3 filtered-result filtered-channel">
+            <a href="<?php echo $channel['link'] ?>">
+              <img src="<?php echo $channel['imgSrc'] ?>" alt="" class="img-fluid">
+              <h3><?php echo $channel['name'] ?></h3>
+              <p class="lead"><?php echo $channel['language'] ?></p>
+            </a>
+          </div>
+        <?php endforeach; ?>
+      </div>
+    <?php endif; ?>
+
+    <?php if(!empty($filteredHosts)): ?>
+      <div class="row filtered-title filtered-hosts-title">
+        <div class="col col-sm-12 text-center">
+          <h2>Hosts</h2>
+        </div>
+      </div>
+      <div class="row filtered-hosts filtered-result-row justify-content-center">
+        <?php foreach ($filteredHosts as $host): ?>
+          <div class="col col-sm-3 filtered-result filtered-host">
+            <a href="<?php echo $host['link'] ?>">
+              <img src="<?php echo $host['imgSrc'] ?>" alt="" class="img-fluid">
+              <h3><?php echo $host['name'] ?></h3>
+              <p class="lead"><?php echo $host['jobTitle'] ?></p>
+            </a>
+          </div>
+        <?php endforeach; ?>
+      </div>
+    <?php endif; ?>
+
+    <?php if(!empty($filteredVoices)): ?>
+      <div class="row filtered-title filtered-voices-title">
+        <div class="col col-sm-12 text-center">
+          <h2>Voices</h2>
+        </div>
+      </div>
+      <div class="row filtered-voices filtered-result-row justify-content-center">
+        <?php foreach ($filteredVoices as $voice): ?>
+          <div class="col col-sm-3 filtered-result filtered-voice">
+            <a href="<?php echo $voice['link'] ?>">
+              <img src="<?php echo $voice['imgSrc'] ?>" alt="" class="img-fluid">
+              <h3><?php echo $voice['name'] ?></h3>
+              <p class="lead"><?php echo $voice['jobTitle'] ?></p>
+            </a>
+          </div>
+        <?php endforeach; ?>
+      </div>
+    <?php endif; ?>
 
     <div class="row explore-featured-podcasts-title justify-content-center">
       <div class="col-sm-12 text-center">

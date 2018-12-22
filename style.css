@@ -977,6 +977,21 @@ object {
   .explore-page .explore-multi .ss-values .ss-value {
     color: #212121 !important;
     background-color: #f4B300 !important; }
+.explore-page .filtered-title {
+  margin-bottom: 50px; }
+.explore-page .filtered-result-row {
+  margin-bottom: 50px; }
+.explore-page .filtered-result a {
+  color: #212121;
+  display: block;
+  padding: 25px; }
+  .explore-page .filtered-result a:hover {
+    color: #212121;
+    background-color: #f4B300; }
+  .explore-page .filtered-result a .lead {
+    margin-bottom: 10px; }
+.explore-page .filtered-result img {
+  margin-bottom: 15px; }
 .explore-page .explore-featured-podcasts-items .explore-featured-item img {
   margin-bottom: 30px; }
 .explore-page .explore-featured-podcasts-items .explore-featured-item a {
