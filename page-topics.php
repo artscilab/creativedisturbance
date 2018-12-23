@@ -161,7 +161,6 @@ if (!empty($_SERVER['QUERY_STRING'])) {
       );
       array_push($filteredEpisodes, $episode);
     }
-    var_dump($filteredEpisodes);
   }
 
   if ($showChannels) {
