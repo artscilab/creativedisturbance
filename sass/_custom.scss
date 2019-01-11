@@ -332,6 +332,15 @@ hr {
   }
 }
 
+.profile-img {
+  border-radius: 50%;
+  margin-bottom: 25px;
+}
+
+.profile-info {
+  padding: 0 15px;
+}
+
 .hosts-row .host, .voices-row .voice {
   a {
     color: $color__text-main;
@@ -351,78 +360,13 @@ hr {
   margin-bottom: 100px;
 }
 
-.home-map-container {
-  margin: 0;
-}
-
-#map {
-  height: 600px;
-}
-
-.mapMarker {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  box-shadow: 0 0 0 5px $color__primary;
-  transition: background .3s ease;
-  cursor: pointer;
-
-  &:hover {
-    background: $color__primary
+.recent-podcast {
+  img {
+    margin-bottom: 25px;
   }
-
-  &::before {
-    content: "";
-    width: 25px;
-    height: 25px;
-    display: inline-block;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    background: $color__primary;
-    animation: markPulse 2s ease-out infinite;
-  }
-}
-
-.mapboxgl-popup {
-  max-width: 400px;
-}
-
-.mapboxgl-popup-content {
-  text-align: center;
-  font-family: 'Raleway', sans-serif;
-  background: $color__background-medium;
-  box-shadow: $box-shadow;
-  padding: 20px;
-
   h3 {
-    color: $color__text-main;
-  }
-
-  p {
     margin-bottom: 10px;
-    color: $color__text-main;
-  }
-
-  a {
-    color: $color__text-main;
   }
 }
 
-.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
-  border-top-color: $color__background-medium;
-}
-
-@keyframes markPulse {
-  0% {
-    opacity: 1;
-    transform: scale(0, 0);
-  }
-  99% {
-    opacity: 0;
-    transform: scale(2.2, 2.2) ;
-  }
-  100% {
-    opacity: 0;
-    transform: scale(0, 0);
-  }
-}
+@import "map";

@@ -36,11 +36,11 @@ get_header();
         get_template_part('template-parts/title', "voice"); ?>
 
       <div class="container">
-        <div class="row justify-content-center">
+        <div class="row row-mb justify-content-center">
           <div class="col-sm-4">
-            <img src="<?php echo $src ?>" alt="" class="img-fluid">
+            <img src="<?php echo $src ?>" alt="" class="img-fluid rounded-circle">
           </div>
-          <div class="col-sm-8">
+          <div class="col-sm-8 bio-info">
             <h4>Website</h4>
             <p><a href="<?php echo $website ?>"><?php echo $website ?></a></p>
             <h4>Expertise</h4>
@@ -101,10 +101,10 @@ get_header();
               $src = $image_attributes[0];
             ?>
           <div class="col col-sm-4">
-            <a href="<?php echo $link ?>" class="link-block link-channel">
+            <a href="<?php echo $link ?>" class="link-block link-channel recent-podcast">
               <img src="<?php echo $src ?>" alt="" class="img-fluid">
               <h3><?php echo $title ?></h3>
-              <p class="lead"><?php echo $seriesName ?></p>
+              <p class="lead text-muted"><?php echo $seriesName ?></p>
             </a>
           </div>
           <?php endif; endfor; ?>

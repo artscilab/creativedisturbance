@@ -81,14 +81,16 @@ while($voicePod->fetch()) {
             <div class="host col-sm-4">
               <a href="<?php echo $host['link'] ?>">
                 <img src="<?php echo $host['src'] ?>" alt="" class="profile-img img-fluid">
-                <h3><?php echo $host['name'] ?></h3>
-                <p class="lead"><?php echo $host['job'] ?></p>
-                <p>Host of: </p>
-                <ul>
-                  <?php foreach ($host['series'] as $series): ?>
-                    <li><?php echo $series ?></li>
-                  <?php endforeach; ?>
-                </ul>
+                <div class="profile-info">
+                  <h3><?php echo $host['name'] ?></h3>
+                  <p class="lead"><?php echo $host['job'] ?></p>
+                  <p>Host of: </p>
+                  <ul>
+                    <?php foreach ($host['series'] as $series): ?>
+                      <li><?php echo $series ?></li>
+                    <?php endforeach; ?>
+                  </ul>
+                </div>
               </a>
             </div>
           <?php endforeach; ?>
@@ -106,14 +108,16 @@ while($voicePod->fetch()) {
             <div class="voice col-sm-4">
               <a href="<?php echo $voice['link'] ?>">
                 <img src="<?php echo $voice['src'] ?>" alt="" class="profile-img img-fluid">
-                <h3><?php echo $voice['name'] ?></h3>
-                <p class="lead"><?php echo $voice['job'] ?></p>
-                <p>Appears in: </p>
-                <ul>
-                  <?php foreach ($voice['podcasts'] as $podcast): ?>
-                    <li><?php echo $podcast ?></li>
-                  <?php endforeach; ?>
-                </ul>
+                <div class="profile-info">
+                  <h3><?php echo $voice['name'] ?></h3>
+                  <p class="lead"><?php echo $voice['job'] ?></p>
+                  <p>Appears in: </p>
+                  <ul>
+                    <?php foreach ($voice['podcasts'] as $podcast): ?>
+                      <li><?php echo $podcast ?></li>
+                    <?php endforeach; ?>
+                  </ul>
+                </div>
               </a>
             </div>
           <?php endforeach; ?>

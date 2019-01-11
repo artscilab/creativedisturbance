@@ -336,9 +336,11 @@ if (!empty($_SERVER['QUERY_STRING'])) {
         <?php foreach ($filteredHosts as $host): ?>
           <div class="col col-sm-3 filtered-result filtered-host">
             <a href="<?php echo $host['link'] ?>">
-              <img src="<?php echo $host['imgSrc'] ?>" alt="" class="img-fluid">
-              <h3><?php echo $host['name'] ?></h3>
-              <p class="lead"><?php echo $host['jobTitle'] ?></p>
+              <img src="<?php echo $host['imgSrc'] ?>" alt="" class="img-fluid profile-img">
+              <div class="profile-info">
+                <h3><?php echo $host['name'] ?></h3>
+                <p class="lead"><?php echo $host['jobTitle'] ?></p>
+              </div>
             </a>
           </div>
         <?php endforeach; ?>
@@ -355,9 +357,11 @@ if (!empty($_SERVER['QUERY_STRING'])) {
         <?php foreach ($filteredVoices as $voice): ?>
           <div class="col col-sm-3 filtered-result filtered-voice">
             <a href="<?php echo $voice['link'] ?>">
-              <img src="<?php echo $voice['imgSrc'] ?>" alt="" class="img-fluid">
-              <h3><?php echo $voice['name'] ?></h3>
-              <p class="lead"><?php echo $voice['jobTitle'] ?></p>
+              <img src="<?php echo $voice['imgSrc'] ?>" alt="" class="img-fluid profile-img">
+              <div class="profile-info">
+                <h3><?php echo $voice['name'] ?></h3>
+                <p class="lead"><?php echo $voice['jobTitle'] ?></p>
+              </div>
             </a>
           </div>
         <?php endforeach; ?>

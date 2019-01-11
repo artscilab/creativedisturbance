@@ -1008,6 +1008,13 @@ hr {
 .explore-page .filtered-result img, .hosts-row .host img, .voices-row .voice img {
   margin-bottom: 15px; }
 
+.profile-img {
+  border-radius: 50%;
+  margin-bottom: 25px; }
+
+.profile-info {
+  padding: 0 15px; }
+
 .hosts-row .host a, .voices-row .voice a {
   color: #FAFAFA; }
   .hosts-row .host a:hover, .voices-row .voice a:hover {
@@ -1018,6 +1025,11 @@ hr {
   margin-bottom: 100px; }
   .voices .title-row, .hosts .title-row {
     margin-bottom: 50px; }
+
+.recent-podcast img {
+  margin-bottom: 25px; }
+.recent-podcast h3 {
+  margin-bottom: 10px; }
 
 .home-map-container {
   margin: 0; }
