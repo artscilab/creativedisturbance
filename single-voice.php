@@ -15,14 +15,13 @@ get_header();
       <?php
       while ( have_posts() ) :
         the_post();
-        $host = pods('host', get_the_ID());
+        $voice = pods('voice', get_the_ID());
 
-        $jobTitle = $host->display('job_title');
-        $src = $host->display('profile_photo');
-        $website = $host->display('website');
-        $categories = $host->display('categories');
-        $series = $host->field('series');
-        $episodes = $host->field(array(
+        $jobTitle = $voice->display('job_title');
+        $src = $voice->display('profile_photo');
+        $website = $voice->display('website');
+        $categories = $voice->display('categories');
+        $episodes = $voice->field(array(
           "name" => 'podcast',
           "raw" => false,
           "single" => null,
@@ -54,43 +53,13 @@ get_header();
 
         <div class="row row-mb">
           <div class="col-sm-12 text-center">
-            <h2>Host of</h2>
-          </div>
-        </div>
-
-        <?php foreach ($series as $s):
-          $id = intval($s['term_id']);
-          $media_id = get_term_meta( $id, 'podcast_series_image_settings', true );
-          $image_attributes = wp_get_attachment_image_src( $media_id, 'large' );
-          $language = get_term_meta( $id, 'language', true );
-          $src = $image_attributes[0]; ?>
-
-          <div class="row row-mb justify-content-center">
-            <div class="col-sm-4">
-              <img src="<?php echo $src ?>" alt="" class="img-fluid">
-            </div>
-            <div class="col-sm-6">
-              <h3>
-                <a href="<?php echo get_term_link($id) ?>"><?php echo $s['name'] ?></a>
-              </h3>
-              <p class="lead"><?php echo $language['post_title'] ?></p>
-              <p><?php echo $s['description'] ?></p>
-            </div>
-          </div>
-        <?php endforeach; ?>
-
-        <hr>
-
-        <div class="row row-mb">
-          <div class="col-sm-12 text-center">
-            <h2>Recent Episodes</h2>
+            <h2>Appears in</h2>
           </div>
         </div>
 
         <div class="row justify-content-center">
-          <?php for($i = 0; $i < 3; $i++):
-            if (isset($episodes[$i])):
-              $id = intval($episodes[$i]['pod_item_id']);
+          <?php foreach ($episodes as $episode):
+              $id = intval($episode['pod_item_id']);
               $episodePod = pods('podcast', $id);
               $link = $episodePod->display('guid');
               $title = $episodePod->display('post_title');
@@ -107,7 +76,7 @@ get_header();
               <p class="lead text-muted"><?php echo $seriesName ?></p>
             </a>
           </div>
-          <?php endif; endfor; ?>
+          <?php endforeach; ?>
         </div>
 
       </div> <!-- Container -->

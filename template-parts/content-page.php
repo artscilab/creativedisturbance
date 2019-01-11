@@ -9,16 +9,15 @@
 
 ?>
 
+<?php
+  set_query_var('display_title', the_title('', '', false));
+  get_template_part('template-parts/title');
+?>
+
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-sm-8">
       <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-        <header class="entry-header">
-          <?php
-          set_query_var('display_title', the_title('', '', false));
-          get_template_part('template-parts/title');
-          ?>
-        </header><!-- .entry-header -->
 
         <?php creativedisturbance_post_thumbnail(); ?>
 
