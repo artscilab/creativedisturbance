@@ -364,7 +364,7 @@ if (!empty($_SERVER['QUERY_STRING'])) {
       </div>
     <?php endif; ?>
 
-    <div class="row explore-featured-podcasts-title justify-content-center">
+    <div class="row row-mb justify-content-center">
       <div class="col-sm-12 text-center">
         <h2>Featured Podcasts</h2>
       </div>

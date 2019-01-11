@@ -934,9 +934,10 @@ hr {
   .home footer, .explore-page footer {
     background: transparent; }
 
-.explore-page .site-title {
+.row-mb {
   margin-bottom: 50px; }
-.explore-page .explore-featured-podcasts-title {
+
+.explore-page .site-title {
   margin-bottom: 50px; }
 .explore-page .explore-form-row {
   font-size: 18px;
