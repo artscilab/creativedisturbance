@@ -822,13 +822,14 @@ object {
 .post-listing {
   margin-bottom: 35px; }
 
-.post hr, .page hr {
+hr {
   width: 50px;
   height: 3px;
   background: #f4B300;
   outline: none;
   border: none;
   margin: 0 auto 4rem auto; }
+
 .post .post-content, .page .post-content {
   font-size: 18px; }
 .post .entry-content, .page .entry-content {
@@ -981,17 +982,6 @@ object {
   margin-bottom: 50px; }
 .explore-page .filtered-result-row {
   margin-bottom: 50px; }
-.explore-page .filtered-result a {
-  color: #212121;
-  display: block;
-  padding: 25px; }
-  .explore-page .filtered-result a:hover {
-    color: #212121;
-    background-color: #f4B300; }
-  .explore-page .filtered-result a .lead {
-    margin-bottom: 10px; }
-.explore-page .filtered-result img {
-  margin-bottom: 15px; }
 .explore-page .explore-featured-podcasts-items .explore-featured-item img {
   margin-bottom: 30px; }
 .explore-page .explore-featured-podcasts-items .explore-featured-item a {
@@ -1002,6 +992,31 @@ object {
     margin-bottom: 10px; }
 .explore-page .explore-featured-podcasts-items .explore-featured-item p {
   margin-bottom: 10px; }
+
+.explore-page .filtered-result a, .hosts-row .host a, .voices-row .voice a {
+  color: #212121;
+  display: block;
+  padding: 25px; }
+  .explore-page .filtered-result a:hover, .hosts-row .host a:hover, .voices-row .voice a:hover {
+    color: #212121;
+    background-color: #f4B300; }
+  .explore-page .filtered-result a p, .hosts-row .host a p, .voices-row .voice a p {
+    margin-bottom: 10px; }
+  .explore-page .filtered-result a ul, .hosts-row .host a ul, .voices-row .voice a ul {
+    margin: 0; }
+.explore-page .filtered-result img, .hosts-row .host img, .voices-row .voice img {
+  margin-bottom: 15px; }
+
+.hosts-row .host a, .voices-row .voice a {
+  color: #FAFAFA; }
+  .hosts-row .host a:hover, .voices-row .voice a:hover {
+    color: #212121;
+    background-color: #f4B300; }
+
+.voices, .hosts {
+  margin-bottom: 100px; }
+  .voices .title-row, .hosts .title-row {
+    margin-bottom: 50px; }
 
 .home-map-container {
   margin: 0; }

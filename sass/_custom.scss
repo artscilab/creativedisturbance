@@ -22,15 +22,17 @@
 .post-listing {
   margin-bottom: 35px;
 }
+
+hr {
+  width: 50px;
+  height: 3px;
+  background: $color__primary;
+  outline: none;
+  border: none;
+  margin: 0 auto 4rem auto;
+}
+
 .post, .page {
-  hr {
-    width: 50px;
-    height: 3px;
-    background: $color__primary;
-    outline: none;
-    border: none;
-    margin: 0 auto 4rem auto;
-  }
   .post-content {
     font-size: 18px;
   }
@@ -283,25 +285,7 @@
   .filtered-result-row {
     margin-bottom: 50px;
   }
-  .filtered-result {
-    a {
-      color: $color__background-body;
-      display: block;
-      padding: 25px;
 
-      &:hover {
-        color: $color__background-body;
-        background-color: $color__primary;
-      }
-
-      .lead {
-        margin-bottom: 10px;
-      }
-    }
-    img {
-      margin-bottom: 15px;
-    }
-  }
   .explore-featured-podcasts-items {
     .explore-featured-item {
       img {
@@ -322,6 +306,49 @@
       }
     }
   }
+}
+
+.explore-page .filtered-result, .hosts-row .host, .voices-row .voice {
+  a {
+    color: $color__background-body;
+    display: block;
+    padding: 25px;
+
+    &:hover {
+      color: $color__background-body;
+      background-color: $color__primary;
+    }
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    ul {
+      margin: 0;
+    }
+  }
+  img {
+    margin-bottom: 15px;
+  }
+}
+
+.hosts-row .host, .voices-row .voice {
+  a {
+    color: $color__text-main;
+
+    &:hover {
+      color: $color__background-body;
+      background-color: $color__primary;
+    }
+  }
+}
+
+.voices, .hosts {
+  .title-row {
+    margin-bottom: 50px;
+  }
+
+  margin-bottom: 100px;
 }
 
 .home-map-container {

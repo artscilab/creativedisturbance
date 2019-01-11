@@ -33,12 +33,12 @@ $channels = get_terms(array(
           $src = $image_attributes[0];
           $name = $channel->name;
           $slug = $channel->slug;
-          $description = $channel->description ?>
+          $description = $channel->description; ?>
           <div class="col-sm-3">
             <a class="link-block link-channel" href="<?php echo get_term_link($channel->term_id) ?>">
               <img src="<?php echo $src ?>" alt="<?php echo $name ?>" class="img-responsive">
               <h3><?php echo $name ?></h3>
-              <p class="text-muted"><?php echo $language ?></p>
+              <p class="text-muted"><?php echo $language['post_title']; ?></p>
               <p><?php echo wp_trim_words($description, 15) ?></p>
             </a>
           </div>
