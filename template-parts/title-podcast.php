@@ -11,8 +11,10 @@
 <div class="jumbotron jumbotron-fluid jumbotron-title">
   <div class="container">
     <div class="row">
-      <div class="col-sm-12">
-        <h1 class="display-3 archive-title"><?php echo get_the_archive_title() ?></h1>
+      <div class="col-sm-12 archive-title">
+        <h1 class="display-3"><?php echo get_the_archive_title() ?></h1>
+        <h3><?php echo get_query_var('language') ?></h3>
+        <h3><?php echo get_query_var('categories') ?></h3>
       </div>
     </div>
     <div class="row align-items-center">
