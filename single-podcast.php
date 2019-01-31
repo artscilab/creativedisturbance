@@ -21,24 +21,22 @@ get_header();
 
 			$podcast = pods('podcast', get_the_ID());
 			$voice = $podcast->field('voices');
-
-			$voices = array();
-			foreach ($voice as $v) {
-        $voicePod = pods('voice', $v['ID']);
-        $name = $voicePod->display('post_title');
-        $link = $voicePod->display('guid');
-        $job = $voicePod->display('job_title');
-        $src = $voicePod->display('profile_photo');
-        array_push($voices, array(
-          "name" => $name,
-          "link" => $link,
-          "job" => $job,
-          "src" => $src
-        ));
-      }
-
+      if (!empty($voice)):
+        $voices = array();
+        foreach ($voice as $v) {
+          $voicePod = pods('voice', $v['ID']);
+          $name = $voicePod->display('post_title');
+          $link = $voicePod->display('guid');
+          $job = $voicePod->display('job_title');
+          $src = $voicePod->display('profile_photo');
+          array_push($voices, array(
+            "name" => $name,
+            "link" => $link,
+            "job" => $job,
+            "src" => $src
+          ));
+        }
 			?>
-
     <div class="container voices podcast-voices">
       <div class="row title-row text-center">
         <div class="col-sm-12">
@@ -57,6 +55,7 @@ get_header();
         <?php endforeach; ?>
       </div>
     </div>
+    <?php endif; ?>
 
 		<?php endwhile; // End of the loop.
 		?>
