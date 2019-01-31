@@ -1008,11 +1008,13 @@ hr {
   .explore-page .filtered-result a ul, .hosts-row .host a ul, .voices-row .voice a ul {
     margin: 0; }
 .explore-page .filtered-result img, .hosts-row .host img, .voices-row .voice img {
-  margin-bottom: 15px; }
+  margin-bottom: 15px;
+  box-shadow: 5px 5px 25px rgba(50, 50, 50, 0.15); }
 
 .profile-img {
   border-radius: 50%;
-  margin-bottom: 25px; }
+  margin-bottom: 25px;
+  box-shadow: 5px 5px 25px rgba(50, 50, 50, 0.15); }
 
 .profile-info {
   padding: 0 15px; }
@@ -1027,6 +1029,9 @@ hr {
   margin-bottom: 100px; }
   .voices .title-row, .hosts .title-row {
     margin-bottom: 50px; }
+
+.podcast-voices {
+  margin-top: 100px; }
 
 .recent-podcast img {
   margin-bottom: 25px; }
