@@ -1030,7 +1030,7 @@ hr {
   .voices .title-row, .hosts .title-row {
     margin-bottom: 50px; }
 
-.podcast-voices {
+.podcast-voices, .podcast-hosts {
   margin-top: 100px; }
 
 .recent-podcast img {

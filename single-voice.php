@@ -28,7 +28,9 @@ get_header();
           "orderby" => 'post_date'
         ));
 
-        $episodes = array_reverse($episodes);
+        if (!empty($episodes)) {
+          $episodes = array_reverse($episodes);
+        }
 
         set_query_var('display_title', the_title('', '', false));
         set_query_var('job_title', $jobTitle);
@@ -49,6 +51,7 @@ get_header();
           </div>
         </div>
 
+        <?php if (!empty($episodes)): ?>
         <hr>
 
         <div class="row row-mb">
@@ -78,6 +81,8 @@ get_header();
           </div>
           <?php endforeach; ?>
         </div>
+
+      <?php endif; ?>
 
       </div> <!-- Container -->
       <?php endwhile; ?>

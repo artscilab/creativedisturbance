@@ -29,7 +29,9 @@ get_header();
           "orderby" => 'post_date'
         ));
 
-        $episodes = array_reverse($episodes);
+        if (!empty($episodes)) {
+          $episodes = array_reverse($episodes);
+        }
 
         set_query_var('display_title', the_title('', '', false));
         set_query_var('job_title', $jobTitle);
@@ -74,11 +76,12 @@ get_header();
                 <a href="<?php echo get_term_link($id) ?>"><?php echo $s['name'] ?></a>
               </h3>
               <p class="lead"><?php echo $language['post_title'] ?></p>
-              <p><?php echo $s['description'] ?></p>
+              <p><?php echo wp_trim_words($s['description'], 70) ?></p>
             </div>
           </div>
         <?php endforeach; ?>
 
+        <?php if (!empty($episodes)): ?>
         <hr>
 
         <div class="row row-mb">
@@ -109,7 +112,7 @@ get_header();
           </div>
           <?php endif; endfor; ?>
         </div>
-
+        <?php endif; ?>
       </div> <!-- Container -->
       <?php endwhile; ?>
 
