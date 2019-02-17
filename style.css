@@ -996,18 +996,18 @@ hr {
 .explore-page .explore-featured-podcasts-items .explore-featured-item p {
   margin-bottom: 10px; }
 
-.explore-page .filtered-result a, .hosts-row .host a, .voices-row .voice a {
+.explore-page .filtered-result a, .host a, .voice a, .similar a {
   color: #212121;
   display: block;
   padding: 25px; }
-  .explore-page .filtered-result a:hover, .hosts-row .host a:hover, .voices-row .voice a:hover {
+  .explore-page .filtered-result a:hover, .host a:hover, .voice a:hover, .similar a:hover {
     color: #212121;
     background-color: #f4B300; }
-  .explore-page .filtered-result a p, .hosts-row .host a p, .voices-row .voice a p {
+  .explore-page .filtered-result a p, .host a p, .voice a p, .similar a p {
     margin-bottom: 10px; }
-  .explore-page .filtered-result a ul, .hosts-row .host a ul, .voices-row .voice a ul {
+  .explore-page .filtered-result a ul, .host a ul, .voice a ul, .similar a ul {
     margin: 0; }
-.explore-page .filtered-result img, .hosts-row .host img, .voices-row .voice img {
+.explore-page .filtered-result img, .host img, .voice img, .similar img {
   margin-bottom: 15px;
   box-shadow: 5px 5px 25px rgba(50, 50, 50, 0.15); }
 
@@ -1019,24 +1019,31 @@ hr {
 .profile-info {
   padding: 0 15px; }
 
-.hosts-row .host a, .voices-row .voice a {
+.hosts-row .host a, .voices-row .voice a, .similar-row .similar a {
   color: #FAFAFA; }
-  .hosts-row .host a:hover, .voices-row .voice a:hover {
+  .hosts-row .host a:hover, .voices-row .voice a:hover, .similar-row .similar a:hover {
     color: #212121;
     background-color: #f4B300; }
 
-.voices, .hosts {
+.voices, .hosts, .podcast-similar {
   margin-bottom: 100px; }
-  .voices .title-row, .hosts .title-row {
+  .voices .title-row, .hosts .title-row, .podcast-similar .title-row {
     margin-bottom: 50px; }
 
-.podcast-voices, .podcast-hosts {
+.podcast-hosts-voices, .podcast-similar {
   margin-top: 100px; }
+  .podcast-hosts-voices .title-row, .podcast-similar .title-row {
+    margin-bottom: 25px; }
 
 .recent-podcast img {
   margin-bottom: 25px; }
 .recent-podcast h3 {
   margin-bottom: 10px; }
+
+.similar {
+  flex-grow: 1; }
+  .similar > a {
+    height: 100%; }
 
 .home-map-container {
   margin: 0; }

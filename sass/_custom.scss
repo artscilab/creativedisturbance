@@ -311,7 +311,7 @@ hr {
   }
 }
 
-.explore-page .filtered-result, .hosts-row .host, .voices-row .voice {
+.explore-page .filtered-result, .host, .voice, .similar {
   a {
     color: $color__background-body;
     display: block;
@@ -348,7 +348,7 @@ hr {
   padding: 0 15px;
 }
 
-.hosts-row .host, .voices-row .voice {
+.hosts-row .host, .voices-row .voice, .similar-row .similar {
   a {
     color: $color__text-main;
 
@@ -359,7 +359,7 @@ hr {
   }
 }
 
-.voices, .hosts {
+.voices, .hosts, .podcast-similar {
   .title-row {
     margin-bottom: 50px;
   }
@@ -367,8 +367,12 @@ hr {
   margin-bottom: 100px;
 }
 
-.podcast-voices, .podcast-hosts {
+.podcast-hosts-voices, .podcast-similar {
   margin-top: 100px;
+
+  .title-row {
+    margin-bottom: 25px;
+  }
 }
 
 .recent-podcast {
@@ -377,6 +381,13 @@ hr {
   }
   h3 {
     margin-bottom: 10px;
+  }
+}
+
+.similar {
+  flex-grow: 1;
+  > a {
+    height: 100%;
   }
 }
 
