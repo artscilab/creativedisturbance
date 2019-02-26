@@ -24,7 +24,7 @@ while($dropdownCategories->fetch()) {
   $catName = $dropdownCategories->display('post_title');
   array_push($dropdownCategoriesArr, array(
       'text' => $catName,
-      'value' => str_replace(' ', '_', strtolower($catName))
+      'value' => str_replace(' ', '-', strtolower($catName))
     )
   );
 }
@@ -69,7 +69,8 @@ while ( $featuredPodcasts->fetch() ) {
     "series" => $series,
     "country" => $country,
     "link" => $link,
-    "imgSrc" => $src
+    "imgSrc" => $src,
+    "categoryDisplay" => $featuredPodcasts->display('podcast_category')
   );
 
   array_push($featuredPosts, $post);
@@ -127,6 +128,7 @@ if (!empty($_SERVER['QUERY_STRING'])) {
         'where' => 'language.post_title = \'' . $queryParams['languageSelect'][0] . '\''
       );
     }
+
     $podcasts = pods('podcast', $podcastParams);
     while($podcasts->fetch()) {
       $title = $podcasts->display('post_title');
@@ -145,21 +147,31 @@ if (!empty($_SERVER['QUERY_STRING'])) {
       $categoryField = $podcasts->field('podcast_category');
       $categories = array();
       if (!empty($categoryField)) {
-        foreach ($categoryField as $category) {
-          array_push($categories, $category['post_title']);
+        $show = false;
+        if (in_array("topicSelect", $queryParams)) {
+          foreach ($categoryField as $category) {
+            array_push($categories, $category['post_title']);
+            if (in_array($category['post_name'], $queryParams['topicSelect'])) {
+              $show = true;
+            }
+          }
+        }
+        else $show = true;
+
+        if ($show) {
+          $episode = array(
+            "title" => $title,
+            "series" => $series,
+            "country" => $country,
+            "link" => $link,
+            "imgSrc" => $src,
+            "language" => $language,
+            "categories" => $categories,
+            "categoryDisplay" => $podcasts->display('podcast_category')
+          );
+          array_push($filteredEpisodes, $episode);
         }
       }
-
-      $episode = array(
-        "title" => $title,
-        "series" => $series,
-        "country" => $country,
-        "link" => $link,
-        "imgSrc" => $src,
-        "language" => $language,
-        "categories" => $categories
-      );
-      array_push($filteredEpisodes, $episode);
     }
   }
 
@@ -186,13 +198,32 @@ if (!empty($_SERVER['QUERY_STRING'])) {
       $image_attributes = wp_get_attachment_image_src( $media_id, 'large' );
       $src = $image_attributes[0];
 
-      $channel = array(
-        "name" => $name,
-        "link" => $link,
-        "imgSrc" => $src,
-        "language" => $language
-      );
-      array_push($filteredChannels, $channel);
+      $categoryField = $channels->field('series_category');
+      $categories = array();
+      if (!empty($categoryField)) {
+        $show = false;
+        if (in_array("topicSelect", $queryParams)) {
+          foreach ($categoryField as $category) {
+            array_push($categories, $category['post_title']);
+            if (in_array($category['post_name'], $queryParams['topicSelect'])) {
+              $show = true;
+            }
+          }
+        }
+        else $show = true;
+
+        if ($show) {
+          $channel = array(
+            "name" => $name,
+            "link" => $link,
+            "imgSrc" => $src,
+            "language" => $language,
+            "categories" => $categories,
+            "categoryDisplay" => $channels->display('series_category')
+          );
+          array_push($filteredChannels, $channel);
+        }
+      }
     }
   }
 
@@ -217,17 +248,36 @@ if (!empty($_SERVER['QUERY_STRING'])) {
       $organization = $hosts->display('organization');
       $language = $hosts->display('language');
       $link = $hosts->display('guid');
+      $categoryField = $hosts->field('categories');
 
-      $host = array(
-        "name" => $name,
-        "jobTitle" => $job,
-        "organization" => $organization,
-        "imgSrc" => $src,
-        "link" => $link,
-        "language" => $language
-      );
+      $categories = array();
+      if (!empty($categoryField)) {
+        $show = false;
+        if (in_array("topicSelect", $queryParams)) {
+          foreach ($categoryField as $category) {
+            array_push($categories, $category['post_title']);
+            if (in_array($category['post_name'], $queryParams['topicSelect'])) {
+              $show = true;
+            }
+          }
+        }
+        else $show = true;
 
-      array_push($filteredHosts, $host);
+        if ($show) {
+          $host = array(
+            "name" => $name,
+            "jobTitle" => $job,
+            "organization" => $organization,
+            "imgSrc" => $src,
+            "link" => $link,
+            "language" => $language,
+            "categories" => $categories,
+            "categoryDisplay" => $hosts->display('categories')
+          );
+
+          array_push($filteredHosts, $host);
+        }
+      }
     }
 
     $voices = pods('voice', $peopleParams);
@@ -239,17 +289,36 @@ if (!empty($_SERVER['QUERY_STRING'])) {
       $organization = $voices->display('organization');
       $language = $voices->display('language');
       $link = $voices->display('guid');
+      $categoryField = $voices->field('categories');
+      $categories = array();
 
-      $voice = array(
-        "name" => $name,
-        "jobTitle" => $job,
-        "organization" => $organization,
-        "imgSrc" => $src,
-        "link" => $link,
-        "language" => $language
-      );
+      if (!empty($categoryField)) {
+        $show = false;
+        if (in_array("topicSelect", $queryParams)) {
+          foreach ($categoryField as $category) {
+            array_push($categories, $category['post_title']);
+            if (in_array($category['post_name'], $queryParams['topicSelect'])) {
+              $show = true;
+            }
+          }
+        }
+        else $show = true;
 
-      array_push($filteredVoices, $voice);
+        if ($show) {
+          $voice = array(
+            "name" => $name,
+            "jobTitle" => $job,
+            "organization" => $organization,
+            "imgSrc" => $src,
+            "link" => $link,
+            "language" => $language,
+            "categories" => $categories,
+            "categoryDisplay" => $voices->display('categories')
+          );
+
+          array_push($filteredVoices, $voice);
+        }
+      }
     }
   }
 }
@@ -289,18 +358,19 @@ if (!empty($_SERVER['QUERY_STRING'])) {
 
     <?php if(!empty($filteredEpisodes)): ?>
     <div class="row filtered-title filtered-episodes-title">
-      <div class="col col-sm-12 text-center">
+      <div class="col col-md-12 text-center">
         <h2>Episodes</h2>
       </div>
     </div>
     <div class="row filtered-episodes filtered-result-row justify-content-center">
       <?php foreach ($filteredEpisodes as $episode): ?>
-      <div class="col col-sm-3 filtered-result filtered-episode">
+      <div class="col col-md-4 filtered-result filtered-episode">
         <a href="<?php echo $episode['link'] ?>">
           <img src="<?php echo $episode['imgSrc'] ?>" alt="" class="img-fluid">
           <h3><?php echo wp_trim_words($episode['title'], 5) ?></h3>
           <p class="lead"><?php echo $episode['series'] ?></p>
           <p><?php echo $episode['language'] ?></p>
+          <p><?php echo $episode['categoryDisplay'] ?></p>
         </a>
       </div>
       <?php endforeach; ?>
@@ -309,17 +379,18 @@ if (!empty($_SERVER['QUERY_STRING'])) {
 
     <?php if(!empty($filteredChannels)): ?>
       <div class="row filtered-title filtered-channels-title">
-        <div class="col col-sm-12 text-center">
+        <div class="col col-md-12 text-center">
           <h2>Channels</h2>
         </div>
       </div>
       <div class="row filtered-channels filtered-result-row justify-content-center">
         <?php foreach ($filteredChannels as $channel): ?>
-          <div class="col col-sm-3 filtered-result filtered-channel">
+          <div class="col col-md-4 filtered-result filtered-channel">
             <a href="<?php echo $channel['link'] ?>">
               <img src="<?php echo $channel['imgSrc'] ?>" alt="" class="img-fluid">
               <h3><?php echo $channel['name'] ?></h3>
               <p class="lead"><?php echo $channel['language'] ?></p>
+              <p><?php echo $channel['categoryDisplay'] ?></p>
             </a>
           </div>
         <?php endforeach; ?>
@@ -328,18 +399,19 @@ if (!empty($_SERVER['QUERY_STRING'])) {
 
     <?php if(!empty($filteredHosts)): ?>
       <div class="row filtered-title filtered-hosts-title">
-        <div class="col col-sm-12 text-center">
+        <div class="col col-md-12 text-center">
           <h2>Hosts</h2>
         </div>
       </div>
       <div class="row filtered-hosts filtered-result-row justify-content-center">
         <?php foreach ($filteredHosts as $host): ?>
-          <div class="col col-sm-3 filtered-result filtered-host">
+          <div class="col col-md-4 filtered-result filtered-host">
             <a href="<?php echo $host['link'] ?>">
               <img src="<?php echo $host['imgSrc'] ?>" alt="" class="img-fluid profile-img">
               <div class="profile-info">
                 <h3><?php echo $host['name'] ?></h3>
                 <p class="lead"><?php echo $host['jobTitle'] ?></p>
+                <p><?php echo $host['categoryDisplay'] ?></p>
               </div>
             </a>
           </div>
@@ -349,18 +421,19 @@ if (!empty($_SERVER['QUERY_STRING'])) {
 
     <?php if(!empty($filteredVoices)): ?>
       <div class="row filtered-title filtered-voices-title">
-        <div class="col col-sm-12 text-center">
+        <div class="col col-md-12 text-center">
           <h2>Voices</h2>
         </div>
       </div>
       <div class="row filtered-voices filtered-result-row justify-content-center">
         <?php foreach ($filteredVoices as $voice): ?>
-          <div class="col col-sm-3 filtered-result filtered-voice">
+          <div class="col col-md-4 filtered-result filtered-voice">
             <a href="<?php echo $voice['link'] ?>">
               <img src="<?php echo $voice['imgSrc'] ?>" alt="" class="img-fluid profile-img">
               <div class="profile-info">
                 <h3><?php echo $voice['name'] ?></h3>
                 <p class="lead"><?php echo $voice['jobTitle'] ?></p>
+                <p><?php echo $voice['categoryDisplay'] ?></p>
               </div>
             </a>
           </div>
@@ -381,6 +454,7 @@ if (!empty($_SERVER['QUERY_STRING'])) {
           <h3><?php echo $post['title'] ?></h3>
           <p class="lead"><?php echo $post['series'] ?></p>
           <p><?php echo $post['country'] ?></p>
+          <p><?php echo $post['categoryDisplay'] ?></p>
         </a>
       </div>
       <?php endforeach; ?>

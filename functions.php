@@ -7,6 +7,12 @@
  * @package CreativeDisturbance
  */
 
+function displayVar() {
+  $args = func_get_args();
+  foreach ($args as $arg)
+    echo '<pre>' . var_export($arg, true) . '</pre>';
+}
+
 if ( ! function_exists( 'creativedisturbance_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
