@@ -215,7 +215,7 @@ add_action('login_head', 'wpfme_loginCSS');
 function new_nav_menu_items($items) {
   $dropdownOpen = '<li itemscope="itemscope" id="menu-item-108" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown menu-item-108 nav-item"><a title="Channels" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle nav-link" id="menu-item-dropdown-108">Channels</a><ul class="dropdown-menu" aria-labelledby="menu-item-dropdown-108" id="channels-dropdown" role="menu">';
 
-	$dropdownClose = '<li itemscope="itemscope" id="menu-item-141" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-141 nav-item"><a title="All Channels" href="http://localhost:8888/cdDev/channels/" class="dropdown-item">All Channels</a></li></ul></li>';
+	$dropdownClose = '<li itemscope="itemscope" id="menu-item-141" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-141 nav-item"><a title="All Channels" href="' . get_site_url( null, '/channels', null) . '" class="dropdown-item">All Channels</a></li></ul></li>';
 
 	$newItem = $dropdownOpen;
 
