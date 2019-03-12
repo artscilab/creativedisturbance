@@ -8,6 +8,12 @@
   color: $color__primary;
 }
 
+#channels-dropdown {
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+}
+
 .dropdown-menu {
   right: 0;
   left: inherit;
@@ -15,9 +21,6 @@
   background-color: $color__background-nav !important;
   box-shadow: $box-shadow;
   line-height: 22px;
-  columns: 2;
-  -webkit-columns: 2;
-  -moz-columns: 2;
 
   a {
     transition: all .2s ease;
