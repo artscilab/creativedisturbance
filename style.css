@@ -577,7 +577,10 @@ a {
   margin-top: 15px;
   background-color: #424242 !important;
   box-shadow: 0 5px 30px 0 rgba(30, 30, 30, 0.5);
-  line-height: 22px; }
+  line-height: 22px;
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2; }
   .dropdown-menu a {
     transition: all .2s ease;
     color: rgba(255, 255, 255, 0.5); }

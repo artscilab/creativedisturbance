@@ -210,3 +210,29 @@ function wpfme_loginCSS() {
   echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('template_directory').'/style.css"/>';
 }
 add_action('login_head', 'wpfme_loginCSS');
+
+// Filter wp_nav_menu() to add additional links and other output
+function new_nav_menu_items($items) {
+  $dropdownOpen = '<li itemscope="itemscope" id="menu-item-108" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown menu-item-108 nav-item"><a title="Channels" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle nav-link" id="menu-item-dropdown-108">Channels</a><ul class="dropdown-menu" aria-labelledby="menu-item-dropdown-108" role="menu">';
+
+	$dropdownClose = '<li itemscope="itemscope" id="menu-item-141" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-141 nav-item"><a title="All Channels" href="http://localhost:8888/cdDev/channels/" class="dropdown-item">All Channels</a></li></ul></li>';
+
+	$newItem = $dropdownOpen;
+
+  $channelParams = array(
+    'limit' => 15
+  );
+  $channels = pods('series', $channelParams);
+  while($channels->fetch()) {
+    $name = $channels->display('name');
+    $id = $channels->display('term_id');
+    $link = get_term_link($id);
+
+    $newItem = $newItem . '<li itemscope="itemscope" class="menu-item menu-item-type-taxonomy menu-item-object-series nav-item"><a title="Papo ArteCiência" href="' . $link . '" class="dropdown-item">' . $name . '</a></li>';
+  }
+  $newItem = $newItem . $dropdownClose;
+
+  $items = $newItem . $items;
+  return $items;
+}
+add_filter( 'wp_nav_menu_items', 'new_nav_menu_items' );
