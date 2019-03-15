@@ -38,7 +38,7 @@ get_header();
 
       <div class="container">
         <div class="row row-mb align-items-center justify-content-center">
-          <div class="col-sm-5">
+          <div class="col-sm-5 d-flex justify-content-center align-items-center">
             <img src="<?php echo $src ?>" alt="" class="img-fluid rounded-circle">
           </div>
         </div>
