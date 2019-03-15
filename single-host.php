@@ -38,11 +38,13 @@ get_header();
         get_template_part('template-parts/title', "voice"); ?>
 
       <div class="container">
-        <div class="row row-mb align-items-center justify-content-center">
+        <div class="row row-mb align-items-center">
           <div class="col-sm-5">
             <img src="<?php echo $src ?>" alt="" class="img-fluid rounded-circle">
           </div>
-          <div class="col bio-info">
+        </div>
+        <div class="row row-mb align-items-center justify-content-center">
+          <div class="col-sm-8 bio-info">
             <?php if ($website !== ""): ?>
             <h4>Website</h4>
             <p><a href="<?php echo $website ?>"><?php echo $website ?></a></p>
