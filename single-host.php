@@ -38,7 +38,7 @@ get_header();
         get_template_part('template-parts/title', "voice"); ?>
 
       <div class="container">
-        <div class="row row-mb align-items-center">
+        <div class="row row-mb align-items-center justify-content-center">
           <div class="col-sm-5">
             <img src="<?php echo $src ?>" alt="" class="img-fluid rounded-circle">
           </div>
