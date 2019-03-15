@@ -43,8 +43,10 @@ get_header();
             <img src="<?php echo $src ?>" alt="" class="img-fluid rounded-circle">
           </div>
           <div class="col bio-info">
+            <?php if ($website !== ""): ?>
             <h4>Website</h4>
             <p><a href="<?php echo $website ?>"><?php echo $website ?></a></p>
+            <?php endif; ?>
             <h4>Expertise</h4>
             <p><?php echo $categories ?></p>
             <h4>Bio</h4>
