@@ -20,7 +20,7 @@ get_header();
         $jobTitle = $voice->display('job_title');
         $src = $voice->display('profile_photo');
         $website = $voice->display('website');
-        $categories = $voice->display('categories');
+        $categories = $voice->display('expertise');
         $episodes = $voice->field(array(
           "name" => 'podcast',
           "raw" => false,

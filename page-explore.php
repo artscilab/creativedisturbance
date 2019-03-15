@@ -290,6 +290,7 @@ if (!empty($_SERVER['QUERY_STRING'])) {
       $language = $voices->display('language');
       $link = $voices->display('guid');
       $categoryField = $voices->field('categories');
+      var_dump($categoryField);
       $categories = array();
 
       if (!empty($categoryField)) {
@@ -315,6 +316,7 @@ if (!empty($_SERVER['QUERY_STRING'])) {
             "categories" => $categories,
             "categoryDisplay" => $voices->display('categories')
           );
+          var_dump($voice);
 
           array_push($filteredVoices, $voice);
         }

@@ -20,7 +20,7 @@ get_header();
         $jobTitle = $host->display('job_title');
         $src = $host->display('profile_photo');
         $website = $host->display('website');
-        $categories = $host->display('categories');
+        $categories = $host->display('expertise');
         $series = $host->field('series');
         $episodes = $host->field(array(
           "name" => 'podcast',
