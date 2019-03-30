@@ -20,15 +20,17 @@ while ( $podcasts->fetch() ) {
   $link = $podcasts->display('guid');
   $countryCode = $podcasts->field("country");
 
-  $post = array(
-    "title" => $title,
-    "series" => $series,
-    "country" => $country,
-    "link" => $link,
-    "countryCode" => $countryCode
-  );
+  if ($country != "" && $countryCode != "") {
+    $post = array(
+      "title" => $title,
+      "series" => $series,
+      "country" => $country,
+      "link" => $link,
+      "countryCode" => $countryCode
+    );
 
-  array_push($featuredPosts, $post);
+    array_push($featuredPosts, $post);
+  }
 }
 ?>
   <div class="container">
@@ -43,7 +45,10 @@ while ( $podcasts->fetch() ) {
   </div>
   <div class="container-fluid home-map-container">
     <div class="row justify-content-center">
-      <div class="col-sm-12">
+      <h2 class="mb-5">Explore the world of Creative Disturbance!</h2>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-sm-10">
         <div id="map"></div>
       </div>
     </div>

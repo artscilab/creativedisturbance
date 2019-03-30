@@ -16,8 +16,6 @@ let geojson = {
 mapboxgl.accessToken = token;
 let map = new mapboxgl.Map(opts);
 
-console.log(featuredPosts);
-
 let results = featuredPosts.map(async (post) => {
   let response = await fetch(`https://restcountries.eu/rest/v2/alpha/${post.countryCode}`);
   response = await response.json();
