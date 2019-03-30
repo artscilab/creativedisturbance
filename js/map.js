@@ -16,12 +16,15 @@ let geojson = {
 mapboxgl.accessToken = token;
 let map = new mapboxgl.Map(opts);
 
+console.log(featuredPosts);
+
 let results = featuredPosts.map(async (post) => {
-  let response = await fetch(`https://restcountries.eu/rest/v2/name/${post.country}`);
+  let response = await fetch(`https://restcountries.eu/rest/v2/alpha/${post.countryCode}`);
   response = await response.json();
+  console.log(response);
   post.coordinates = [];
-  post.coordinates[0] = response[0].latlng[1];
-  post.coordinates[1] = response[0].latlng[0];
+  post.coordinates[0] = response.latlng[1];
+  post.coordinates[1] = response.latlng[0];
 
   let x = {
     type: "Feature",

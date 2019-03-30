@@ -18,12 +18,14 @@ while ( $podcasts->fetch() ) {
   $series = $podcasts->display('series');
   $country = $podcasts->display('country');
   $link = $podcasts->display('guid');
+  $countryCode = $podcasts->field("country");
 
   $post = array(
     "title" => $title,
     "series" => $series,
     "country" => $country,
-    "link" => $link
+    "link" => $link,
+    "countryCode" => $countryCode
   );
 
   array_push($featuredPosts, $post);
