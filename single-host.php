@@ -49,7 +49,7 @@ get_header();
             <h4>Website</h4>
             <p><a href="<?php echo $website ?>"><?php echo $website ?></a></p>
             <?php endif; ?>
-            <?php if ($categories !== ""): ?>
+            <?php if ($categories != ""): ?>
             <h4>Expertise</h4>
             <p><?php echo $categories ?></p>
             <?php endif; ?>
