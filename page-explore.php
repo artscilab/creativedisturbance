@@ -148,7 +148,8 @@ if (!empty($_SERVER['QUERY_STRING'])) {
       $categories = array();
       if (!empty($categoryField)) {
         $show = false;
-        if (in_array("topicSelect", $queryParams)) {
+
+        if ($searchByTopic) {
           foreach ($categoryField as $category) {
             array_push($categories, $category['post_title']);
             if (in_array($category['post_name'], $queryParams['topicSelect'])) {
@@ -202,7 +203,7 @@ if (!empty($_SERVER['QUERY_STRING'])) {
       $categories = array();
       if (!empty($categoryField)) {
         $show = false;
-        if (in_array("topicSelect", $queryParams)) {
+        if ($searchByTopic) {
           foreach ($categoryField as $category) {
             array_push($categories, $category['post_title']);
             if (in_array($category['post_name'], $queryParams['topicSelect'])) {
@@ -253,7 +254,7 @@ if (!empty($_SERVER['QUERY_STRING'])) {
       $categories = array();
       if (!empty($categoryField)) {
         $show = false;
-        if (in_array("topicSelect", $queryParams)) {
+        if ($searchByTopic) {
           foreach ($categoryField as $category) {
             array_push($categories, $category['post_title']);
             if (in_array($category['post_name'], $queryParams['topicSelect'])) {
@@ -290,12 +291,11 @@ if (!empty($_SERVER['QUERY_STRING'])) {
       $language = $voices->display('language');
       $link = $voices->display('guid');
       $categoryField = $voices->field('categories');
-      var_dump($categoryField);
       $categories = array();
 
       if (!empty($categoryField)) {
         $show = false;
-        if (in_array("topicSelect", $queryParams)) {
+        if ($searchByTopic) {
           foreach ($categoryField as $category) {
             array_push($categories, $category['post_title']);
             if (in_array($category['post_name'], $queryParams['topicSelect'])) {
@@ -316,7 +316,6 @@ if (!empty($_SERVER['QUERY_STRING'])) {
             "categories" => $categories,
             "categoryDisplay" => $voices->display('categories')
           );
-          var_dump($voice);
 
           array_push($filteredVoices, $voice);
         }
