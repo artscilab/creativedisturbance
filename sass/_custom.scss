@@ -160,31 +160,7 @@ hr {
   background: $topograph;
   color: $color__background-body;
 
-  .filtered-result, .hosts-row .host, .voice-row .voice, .similar {
-    a {
-      color: $color__background-body;
-      display: block;
-      padding: 25px;
 
-      &:hover {
-        color: $color__background-body;
-        background-color: $color__primary;
-      }
-
-      p {
-        margin-bottom: 10px;
-      }
-
-      ul {
-        margin: 0;
-      }
-    }
-    img {
-      margin-bottom: 15px;
-
-      box-shadow: 5px 5px 25px rgba(50, 50, 50, 0.15);
-    }
-  }
 
   .site {
     padding-bottom: 150px;
@@ -388,6 +364,34 @@ hr {
   flex-grow: 1;
   > a {
     height: 100%;
+  }
+}
+
+
+.explore-page .filtered-result, .host, .voice, .similar,
+.home .hosts-row .host {
+  a {
+    color: $color__background-body;
+    display: block;
+    padding: 25px;
+
+    &:hover {
+      color: $color__background-body;
+      background-color: $color__primary;
+    }
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    ul {
+      margin: 0;
+    }
+  }
+  img {
+    margin-bottom: 15px;
+
+    box-shadow: 5px 5px 25px rgba(50, 50, 50, 0.15);
   }
 }
 
