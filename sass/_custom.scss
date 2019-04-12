@@ -158,7 +158,33 @@ hr {
 
 .home, .explore-page {
   background: $topograph;
-  color: $color__background-body;;
+  color: $color__background-body;
+
+  .filtered-result, .hosts-row .host, .voice-row .voice, .similar {
+    a {
+      color: $color__background-body;
+      display: block;
+      padding: 25px;
+
+      &:hover {
+        color: $color__background-body;
+        background-color: $color__primary;
+      }
+
+      p {
+        margin-bottom: 10px;
+      }
+
+      ul {
+        margin: 0;
+      }
+    }
+    img {
+      margin-bottom: 15px;
+
+      box-shadow: 5px 5px 25px rgba(50, 50, 50, 0.15);
+    }
+  }
 
   .site {
     padding-bottom: 150px;
@@ -311,32 +337,6 @@ hr {
   }
 }
 
-.explore-page .filtered-result, .host, .voice, .similar {
-  a {
-    color: $color__background-body;
-    display: block;
-    padding: 25px;
-
-    &:hover {
-      color: $color__background-body;
-      background-color: $color__primary;
-    }
-
-    p {
-      margin-bottom: 10px;
-    }
-
-    ul {
-      margin: 0;
-    }
-  }
-  img {
-    margin-bottom: 15px;
-
-    box-shadow: 5px 5px 25px rgba(50, 50, 50, 0.15);
-  }
-}
-
 .profile-img {
   border-radius: 50%;
   margin-bottom: 25px;
@@ -389,6 +389,10 @@ hr {
   > a {
     height: 100%;
   }
+}
+
+.home-recent-people-container {
+  margin-bottom: 100px;
 }
 
 @import "map";
