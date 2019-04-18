@@ -68,7 +68,7 @@ while($voicePod->fetch()) {
     <main id="main" class="site-main">
       <?php
       set_query_var('display_title', the_title('', '', false));
-      get_template_part('template-parts/title'); ?>
+      get_template_part('template-parts/title-people'); ?>
 
       <div class="container hosts">
         <div class="row title-row">
@@ -84,12 +84,12 @@ while($voicePod->fetch()) {
                 <div class="profile-info">
                   <h3><?php echo $host['name'] ?></h3>
                   <p class="lead"><?php echo $host['job'] ?></p>
-                  <p>Host of: </p>
-                  <ul>
-                    <?php foreach ($host['series'] as $series): ?>
-                      <li><?php echo $series ?></li>
-                    <?php endforeach; ?>
-                  </ul>
+<!--                  <p>Host of: </p>-->
+<!--                  <ul>-->
+<!--                    --><?php //foreach ($host['series'] as $series): ?>
+<!--                      <li>--><?php //echo $series ?><!--</li>-->
+<!--                    --><?php //endforeach; ?>
+<!--                  </ul>-->
                 </div>
               </a>
             </div>
@@ -111,12 +111,12 @@ while($voicePod->fetch()) {
                 <div class="profile-info">
                   <h3><?php echo $voice['name'] ?></h3>
                   <p class="lead"><?php echo $voice['job'] ?></p>
-                  <p>Appears in: </p>
-                  <ul>
-                    <?php foreach ($voice['podcasts'] as $podcast): ?>
-                      <li><?php echo $podcast ?></li>
-                    <?php endforeach; ?>
-                  </ul>
+<!--                  <p>Appears in: </p>-->
+<!--                  <ul>-->
+<!--                    --><?php //foreach ($voice['podcasts'] as $podcast): ?>
+<!--                      <li>--><?php //echo $podcast ?><!--</li>-->
+<!--                    --><?php //endforeach; ?>
+<!--                  </ul>-->
                 </div>
               </a>
             </div>

@@ -161,6 +161,10 @@ function creativedisturbance_scripts() {
     wp_enqueue_script('map', get_template_directory_uri() . '/js/explore.js', array(), '0.0.1', true);
   }
 
+  if (is_page('People')) {
+    wp_enqueue_script('peopleFilter', get_template_directory_uri() . '/js/people-filter.js', array(), '0.0.1', true);
+  }
+
   wp_enqueue_style( 'creativedisturbance-style', get_stylesheet_uri() );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

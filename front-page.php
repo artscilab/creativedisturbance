@@ -86,7 +86,7 @@ $recentHosts = array_map($mapFunc, $recentHosts);
     </div>
     <div class="row hosts-row justify-content-center">
       <?php foreach ($recentHosts as $host): ?>
-        <div class="host col-sm-2">
+        <div class="host col-sm-3">
           <a href="<?php echo $host['link'] ?>">
             <img src="<?php echo $host['src'] ?>" alt="" class="profile-img img-fluid">
             <div class="profile-info">

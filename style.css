@@ -1007,7 +1007,7 @@ hr {
   box-shadow: 5px 5px 25px rgba(50, 50, 50, 0.15); }
 
 .profile-info {
-  padding: 0 15px; }
+  text-align: center; }
 
 .hosts-row .host a, .voices-row .voice a, .similar-row .similar a {
   color: #FAFAFA; }
