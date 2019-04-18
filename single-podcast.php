@@ -46,7 +46,9 @@ get_header();
       }
     }
 
-    $host = $podcast->field('hosts');
+    $series = $podcast->field('series');
+    $seriesPod = pods('series', $series[0]['pod_item_id']);
+    $host = $seriesPod->field('host');
     $voice = $podcast->field('voices');
 
     $hosts = array();
