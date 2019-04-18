@@ -70,7 +70,7 @@ while($voicePod->fetch()) {
       set_query_var('display_title', the_title('', '', false));
       get_template_part('template-parts/title-people'); ?>
 
-      <div class="container hosts">
+      <div id="hosts" class="container hosts">
         <div class="row title-row">
           <div class="col-sm-12 text-center">
             <h2>Hosts</h2>
@@ -97,7 +97,7 @@ while($voicePod->fetch()) {
         </div>
       </div>
 
-      <div class="container voices">
+      <div id="voices" class="container voices">
         <div class="row title-row">
           <div class="col-sm-12 text-center">
             <h2>Voices</h2>

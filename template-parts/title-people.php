@@ -18,10 +18,10 @@ $title = get_query_var('display_title');
       <div class="col-sm-3">
         <div class="form-group">
           <label for="peopleFilterSelect">View</label>
-          <select class="form-control" id="peopleFilterSelect">
+          <select onchange="handlePeopleFilterChange()" class="form-control" id="peopleFilterSelect">
             <option>Hosts</option>
             <option>Voices</option>
-            <option>Both</option>
+            <option selected>Both</option>
           </select>
         </div>
       </div>
