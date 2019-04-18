@@ -7,6 +7,9 @@
  */
 
   $term = get_the_terms(get_the_ID(), 'series')[0];
+  $pod = pods('podcast', get_the_ID());
+  $language = $pod->display("language");
+
   $seriesName = $term->name;
   $slug = $term->slug;
   $media_id = get_term_meta( $term->term_id, 'podcast_series_image_settings', true );
@@ -24,6 +27,11 @@
     <div class="row">
       <div class="col-sm-12">
         <h1 class="display-3"><?php echo get_the_title() ?></h1>
+      </div>
+    </div>
+    <div class="row series-name">
+      <div class="col-sm-12">
+        <h2><?php echo $language ?></h2>
       </div>
     </div>
   </div>
