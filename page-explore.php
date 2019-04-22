@@ -263,7 +263,7 @@ if (!empty($_SERVER['QUERY_STRING'])) {
           }
         }
         else $show = true;
-
+        // this is a comment
         if ($show) {
           $host = array(
             "name" => $name,
