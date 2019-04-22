@@ -80,7 +80,7 @@ $recentHosts = array_map($mapFunc, $recentHosts);
     </div>
   </div>
 
-  <div class="container-fluid home-recent-people-container">
+  <div class="container home-recent-people-container">
     <div class="row justify-content-center">
       <h2 class="mb-5">Recently updated</h2>
     </div>
