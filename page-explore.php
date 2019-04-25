@@ -231,11 +231,11 @@ if (!empty($_SERVER['QUERY_STRING'])) {
   if ($showPeople) {
     if ($queryParams['languageSelect'][0] == 'all') {
       $peopleParams = array(
-        'limit' => 10
+        'limit' => -1
       );
     } else {
       $peopleParams = array(
-        'limit' => 10,
+        'limit' => -1,
         'where' => 'language.post_title = \'' . $queryParams['languageSelect'][0] . '\''
       );
     }
@@ -250,7 +250,7 @@ if (!empty($_SERVER['QUERY_STRING'])) {
       $language = $hosts->display('language');
       $link = $hosts->display('guid');
       $categoryField = $hosts->field('categories');
-      displayVar($name, $categoryField);
+
       $categories = array();
       if (!empty($categoryField)) {
         $show = false;
@@ -263,7 +263,8 @@ if (!empty($_SERVER['QUERY_STRING'])) {
           }
         }
         else $show = true;
-        // this is a comment
+
+        if ($show) {
           $host = array(
             "name" => $name,
             "jobTitle" => $job,
@@ -274,7 +275,6 @@ if (!empty($_SERVER['QUERY_STRING'])) {
             "categories" => $categories,
             "categoryDisplay" => $hosts->display('categories')
           );
-        if ($show) {
 
           array_push($filteredHosts, $host);
         }
@@ -364,7 +364,7 @@ if (!empty($_SERVER['QUERY_STRING'])) {
       </div>
     </div>
     <div class="row filtered-episodes filtered-result-row justify-content-center">
-      <?php foreach ($filteredEpisodes as $episode): ?>
+      <?php foreach (array_slice($filteredEpisodes, 0, 10) as $episode): ?>
       <div class="col col-md-4 filtered-result filtered-episode">
         <a href="<?php echo $episode['link'] ?>">
           <img src="<?php echo $episode['imgSrc'] ?>" alt="" class="img-fluid">
@@ -385,7 +385,7 @@ if (!empty($_SERVER['QUERY_STRING'])) {
         </div>
       </div>
       <div class="row filtered-channels filtered-result-row justify-content-center">
-        <?php foreach ($filteredChannels as $channel): ?>
+        <?php foreach (array_slice($filteredChannels, 0, 10) as $channel): ?>
           <div class="col col-md-4 filtered-result filtered-channel">
             <a href="<?php echo $channel['link'] ?>">
               <img src="<?php echo $channel['imgSrc'] ?>" alt="" class="img-fluid">
@@ -405,7 +405,7 @@ if (!empty($_SERVER['QUERY_STRING'])) {
         </div>
       </div>
       <div class="row filtered-hosts filtered-result-row justify-content-center">
-        <?php foreach ($filteredHosts as $host): ?>
+        <?php foreach (array_slice($filteredHosts, 0, 10) as $host): ?>
           <div class="col col-md-4 filtered-result filtered-host">
             <a href="<?php echo $host['link'] ?>">
               <img src="<?php echo $host['imgSrc'] ?>" alt="" class="img-fluid profile-img">
@@ -427,7 +427,7 @@ if (!empty($_SERVER['QUERY_STRING'])) {
         </div>
       </div>
       <div class="row filtered-voices filtered-result-row justify-content-center">
-        <?php foreach ($filteredVoices as $voice): ?>
+        <?php foreach (array_slice($filteredVoices, 0, 10) as $voice): ?>
           <div class="col col-md-4 filtered-result filtered-voice">
             <a href="<?php echo $voice['link'] ?>">
               <img src="<?php echo $voice['imgSrc'] ?>" alt="" class="img-fluid profile-img">
