@@ -275,7 +275,7 @@ if (!empty($_SERVER['QUERY_STRING'])) {
             "categories" => $categories,
             "categoryDisplay" => $hosts->display('categories')
           );
-
+          displayVar($host);
           array_push($filteredHosts, $host);
         }
       }
