@@ -264,7 +264,6 @@ if (!empty($_SERVER['QUERY_STRING'])) {
         }
         else $show = true;
         // this is a comment
-        if ($show) {
           $host = array(
             "name" => $name,
             "jobTitle" => $job,
@@ -276,6 +275,8 @@ if (!empty($_SERVER['QUERY_STRING'])) {
             "categoryDisplay" => $hosts->display('categories')
           );
           displayVar($host);
+        if ($show) {
+
           array_push($filteredHosts, $host);
         }
       }
