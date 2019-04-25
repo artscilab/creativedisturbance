@@ -250,7 +250,7 @@ if (!empty($_SERVER['QUERY_STRING'])) {
       $language = $hosts->display('language');
       $link = $hosts->display('guid');
       $categoryField = $hosts->field('categories');
-
+      displayVar($name, $categoryField);
       $categories = array();
       if (!empty($categoryField)) {
         $show = false;
@@ -274,7 +274,6 @@ if (!empty($_SERVER['QUERY_STRING'])) {
             "categories" => $categories,
             "categoryDisplay" => $hosts->display('categories')
           );
-          displayVar($host);
         if ($show) {
 
           array_push($filteredHosts, $host);
