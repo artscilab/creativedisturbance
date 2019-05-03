@@ -15,10 +15,7 @@
 
 	<footer id="colophon" class="site-footer">
 		<div class="site-info">
-      <?php
-      /* translators: 1: Theme name, 2: Theme author. */
-      printf( esc_html__( 'Theme: %1$s by %2$s.', 'creativedisturbance' ), 'creativedisturbance', '<a href="http://linkedin.com/in/almadireddy">Al Madireddy</a>' );
-      ?>
+      A project of the <a href="https://artscilab.atec.io">ArtSciLab</a>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
