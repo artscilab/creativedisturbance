@@ -1,4 +1,4 @@
-const token = 'pk.eyJ1IjoiYXJ0c2NpbGFiIiwiYSI6ImNqdjhqdnBkZjAwOWk0NW8wNDZuZ3h4bmMifQ.wVIiTbEStJHjLC7My-Ayjg';
+const token = 'pk.eyJ1IjoiYXJ0c2NpbGFiIiwiYSI6ImNqbndpM2pkejBrN3EzdnBnYmYyZHNhMzEifQ.I-w2OQJhG3YAwlgCoF6MFQ';
 // this should go to master as well //
 let opts = {
   container: 'map',
