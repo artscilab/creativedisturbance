@@ -1,5 +1,5 @@
-const token = 'pk.eyJ1IjoiYXJ0c2NpbGFiIiwiYSI6ImNqdjhqdnBkZjAwOWk0NW8wNDZuZ3h4bmMifQ.wVIiTbEStJHjLC7My-Ayjg';
-// this should go to dev as well//
+const token = 'pk.eyJ1IjoiYXJ0c2NpbGFiIiwiYSI6ImNqbndpM2pkejBrN3EzdnBnYmYyZHNhMzEifQ.I-w2OQJhG3YAwlgCoF6MFQ';
+
 let opts = {
   container: 'map',
   style: 'mapbox://styles/mapbox/dark-v9',
