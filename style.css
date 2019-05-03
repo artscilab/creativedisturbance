@@ -593,6 +593,11 @@ a {
 .bg-dark {
   background-color: #424242 !important; }
 
+.navbar-brand:hover {
+  background: transparent; }
+.navbar-brand img {
+  max-width: 300px; }
+
 .site-footer {
   position: absolute;
   bottom: 0;

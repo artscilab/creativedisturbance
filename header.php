@@ -26,7 +26,13 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'creativedisturbance' ); ?></a>
 
 	<nav role="navigation" id="masthead" class="navbar navbar-dark bg-dark navbar-expand-md">
-      <a class="navbar-brand" href="<?php echo get_home_url() ?>">Navbar</a>
+      <a class="navbar-brand nav-link" href="<?php echo get_home_url() ?>">
+        <?php if(is_page('Explore') || is_page('Home')) { ?>
+          <img src="<?php echo get_template_directory_uri() . '/img/wordmark_black.png'; ?>" />
+        <?php } else { ?>
+          <img src="<?php echo get_template_directory_uri() . '/img/wordmark_white.png'; ?>" />
+        <?php } ?>
+      </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>

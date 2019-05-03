@@ -35,3 +35,12 @@
 .bg-dark {
   background-color: $color__background-nav !important;
 }
+
+.navbar-brand {
+  &:hover {
+    background: transparent;
+  }
+  img {
+    max-width: 300px;
+  }
+}
