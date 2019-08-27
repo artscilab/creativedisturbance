@@ -23,26 +23,28 @@ get_header();
 
     $similarEpisodes = array();
 
-    foreach ($categories as $c) {
-      $name = $c['post_title'];
-      $podParams = array(
-        "limit" => 3,
-        "where" => 'podcast_category.post_title = \''. $name .'\''
-      );
-      $pod = pods('podcast', $podParams);
+    if(!empty($categories)) {
+      foreach ($categories as $c) {
+        $name = $c['post_title'];
+        $podParams = array(
+          "limit" => 3,
+          "where" => 'podcast_category.post_title = \''. $name .'\''
+        );
+        $pod = pods('podcast', $podParams);
 
-      while($pod->fetch()) {
-        $series = get_the_terms($pod->display('ID'), 'series')[0];
-        $seriesName = $series->name;
-        $media_id = get_term_meta( $series->term_id, 'podcast_series_image_settings', true );
-        $image_attributes = wp_get_attachment_image_src( $media_id, 'large' );
-        $src = $image_attributes[0];
-        array_push($similarEpisodes, array(
-          "name" => $pod->display('post_title'),
-          "link" => $pod->display('guid'),
-          "categories" => $pod->display('podcast_category'),
-          "src" => $src
-        ));
+        while($pod->fetch()) {
+          $series = get_the_terms($pod->display('ID'), 'series')[0];
+          $seriesName = $series->name;
+          $media_id = get_term_meta( $series->term_id, 'podcast_series_image_settings', true );
+          $image_attributes = wp_get_attachment_image_src( $media_id, 'large' );
+          $src = $image_attributes[0];
+          array_push($similarEpisodes, array(
+            "name" => $pod->display('post_title'),
+            "link" => $pod->display('guid'),
+            "categories" => $pod->display('podcast_category'),
+            "src" => $src
+          ));
+        }
       }
     }
 
