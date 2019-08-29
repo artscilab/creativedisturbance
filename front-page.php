@@ -110,7 +110,7 @@ $recentHosts = array_map($mapFunc, $recentHosts);
         <div class="host col-sm-3">
           <a href="<?php echo $podcast['link'] ?>">
             <img src="<?php echo $podcast['src'] ?>" alt="" class="podcast-img img-fluid">
-            <div class="profile-info">
+            <div class="">
               <h3><?php echo $podcast['title'] ?></h3>
               <p class="lead"><?php echo $podcast['series'] ?></p>
             </div>
