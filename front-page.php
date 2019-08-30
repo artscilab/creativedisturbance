@@ -1,8 +1,6 @@
 <?php
 get_header();
 
-
-
 $channels = get_terms(array(
   'taxonomy' => 'series',
   'hide_empty' => false
@@ -36,19 +34,42 @@ while ( $podcasts->fetch() ) {
 }
 
 $recentHosts = array();
+$recentPodcasts = array();
 $recentParams = array(
-  'limit' => '5',
+  'limit' => '4',
   'orderby' => 't.post_modified DESC'
 );
 $recents = pods('podcast', $recentParams);
 
 while ($recents->fetch()) {
   $hosts = $recents->field('hosts');
+
   if ($hosts != false) {
     foreach ($hosts as $host) {
       array_push($recentHosts, $host);
     }
   }
+
+  $s = get_the_terms($recents->display('ID'), 'series')[0];
+  $media_id = get_term_meta( $s->term_id, 'podcast_series_image_settings', true );
+  $image_attributes = wp_get_attachment_image_src( $media_id, 'large' );
+  $src = $image_attributes[0];
+
+  $title = $recents->display('post_title');
+  $series = $recents->display('series');
+  $country = $recents->display('country');
+  $link = $recents->display('guid');
+  $countryCode = $recents->field("country");
+  $post = array(
+    "title" => $title,
+    "series" => $series,
+    "country" => $country,
+    "link" => $link,
+    "countryCode" => $countryCode,
+    "src" => $src
+  );
+
+  array_push($recentPodcasts, $post);
 }
 
 $recentHosts = array_unique($recentHosts, SORT_REGULAR);
@@ -83,6 +104,19 @@ $recentHosts = array_map($mapFunc, $recentHosts);
   <div class="container home-recent-people-container">
     <div class="row justify-content-center">
       <h2 class="mb-5">Recently updated</h2>
+    </div>
+    <div class="row hosts-row justify-content-center">
+      <?php foreach ($recentPodcasts as $podcast): ?>
+        <div class="host col-sm-3">
+          <a href="<?php echo $podcast['link'] ?>">
+            <img src="<?php echo $podcast['src'] ?>" alt="" class="podcast-img img-fluid">
+            <div class="">
+              <h3><?php echo $podcast['title'] ?></h3>
+              <p class="lead"><?php echo $podcast['series'] ?></p>
+            </div>
+          </a>
+        </div>
+      <?php endforeach; ?>
     </div>
     <div class="row hosts-row justify-content-center">
       <?php foreach ($recentHosts as $host): ?>
