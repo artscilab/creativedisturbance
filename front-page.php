@@ -103,7 +103,7 @@ $recentHosts = array_map($mapFunc, $recentHosts);
 
   <div class="container home-recent-people-container">
     <div class="row justify-content-center">
-      <h2 class="mb-5">Recently blah</h2>
+      <h2 class="mb-5">Recently updated</h2>
     </div>
     <div class="row hosts-row justify-content-center">
       <?php foreach ($recentPodcasts as $podcast): ?>
