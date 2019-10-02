@@ -52,7 +52,13 @@ $categories = $pod->display('series_category');
               <?php
               $i = 0;
               global $query_string;
-              query_posts( $query_string . '&posts_per_page=250' );
+              query_posts( $query_string .
+                '&posts_per_page=250' .
+                '&orderby=meta_value' .
+                '&meta_type=DATE' .
+                '&meta_key=date_recorded' .
+                '&order=DESC'
+              );
               while ( have_posts() ) : the_post(); ?>
                 <div class="card">
                   <div class="card-header" id="<?php echo 'heading'.get_the_ID() ?>">
