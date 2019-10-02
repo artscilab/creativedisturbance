@@ -259,3 +259,17 @@ function new_nav_menu_items($items) {
   return $items;
 }
 add_filter( 'wp_nav_menu_items', 'new_nav_menu_items' );
+
+// Changes the date from dd-mm-yyyy to yyyy-mm-dd
+function meta_date_sanitize($value) {
+  $x = explode("-", $value);
+
+  if (strlen($x[2]) == 4) {
+    $newArr = array($x[2], $x[1], $x[0]);
+    return join("-", $newArr);
+  }
+
+  return $value;
+}
+
+add_filter('sanitize_post_meta_date_recorded', 'meta_date_sanitize');
