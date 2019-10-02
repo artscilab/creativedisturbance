@@ -48,6 +48,11 @@ if ( is_singular() ) :
   <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <a class="title-link" href="<?php the_permalink(get_the_ID()) ?>"><?php the_title('<h2  class="podcast-archive-title">', '</h2>'); ?>
     </a>
+    <?php
+    $dateRecorded = get_post_meta(get_the_ID())['date_recorded'][0];
+    if ($dateRecorded != "") { ?>
+      <p class="">Recorded on <?php echo $dateRecorded ?></p>
+    <?php } ?>
     <div class="entry-content">
       <?php
       the_excerpt();
