@@ -168,12 +168,6 @@ function creativedisturbance_scripts() {
 
 	wp_enqueue_script( 'creativedisturbance-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
-	if (is_front_page()) {
-    wp_enqueue_style('mapbox-style', 'https://api.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css');
-	  wp_enqueue_script('mapbox', 'https://api.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js');
-    wp_enqueue_script('map', get_template_directory_uri() . '/js/map.js', array(), '0.0.1', true);
-  }
-
   if (is_page('Explore')) {
     wp_enqueue_script('slimselect', 'https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.18.7/slimselect.min.js', array(), '1.18.7', true);
     wp_enqueue_style('slimselect-style', 'https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.18.7/slimselect.min.css');
