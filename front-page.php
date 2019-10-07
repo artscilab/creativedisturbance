@@ -5,33 +5,6 @@ $channels = get_terms(array(
   'taxonomy' => 'series',
   'hide_empty' => false
 ));
-$params = array(
-  'limit' => 15,
-  'where' => 'featured_on_homepage.meta_value = 1'
-);
-$podcasts = pods( 'podcast', $params );
-
-$featuredPosts = array();
-
-while ( $podcasts->fetch() ) {
-  $title = $podcasts->display('post_title');
-  $series = $podcasts->display('series');
-  $country = $podcasts->display('country');
-  $link = $podcasts->display('guid');
-  $countryCode = $podcasts->field("country");
-
-  if ($country != "" && $countryCode != "") {
-    $post = array(
-      "title" => $title,
-      "series" => $series,
-      "country" => $country,
-      "link" => $link,
-      "countryCode" => $countryCode
-    );
-
-    array_push($featuredPosts, $post);
-  }
-}
 
 $recentHosts = array();
 $recentPodcasts = array();
@@ -133,20 +106,5 @@ $recentHosts = array_map($mapFunc, $recentHosts);
     </div>
   </div>
 
-  <div class="container-fluid home-map-container">
-    <div class="row justify-content-center">
-      <h2 class="mb-5">Explore the world of Creative Disturbance!</h2>
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-sm-10">
-        <div id="map"></div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    let featuredPosts = <?php echo json_encode($featuredPosts, JSON_HEX_TAG); ?>;
-  </script>
-
-<?php
+ <?php
 get_footer();
