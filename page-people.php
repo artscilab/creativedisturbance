@@ -21,19 +21,12 @@ while($hostPod->fetch()) {
   $job = $hostPod->display('job_title');
   $src = $hostPod->display('profile_photo');
   $guid = $hostPod->display('guid');
-  $series = $hostPod->field('series');
-  $seriesHosted = array();
-
-  foreach ($series as $s) {
-    array_push($seriesHosted, $s['name']);
-  }
 
   array_push($hosts, array(
     "name" => $name,
     "job" => $job,
     "src" => $src,
-    "link" => $guid,
-    "series" => $seriesHosted
+    "link" => $guid
   ));
 }
 
@@ -47,19 +40,12 @@ while($voicePod->fetch()) {
   $job = $voicePod->display('job_title');
   $src = $voicePod->display('profile_photo');
   $guid = $voicePod->display('guid');
-  $podcast = $voicePod->field('podcast');
-  $podcastAppearances = array();
-
-  foreach ($podcast as $p) {
-    array_push($podcastAppearances, $p['post_title']);
-  }
 
   array_push($voices, array(
     "name" => $name,
     "job" => $job,
     "src" => $src,
-    "link" => $guid,
-    "podcasts" => $podcastAppearances
+    "link" => $guid
   ));
 }
 ?>
