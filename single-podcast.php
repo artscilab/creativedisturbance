@@ -48,8 +48,8 @@ get_header();
       }
     }
 
-    $series = $podcast->field('series');
-    $seriesPod = pods('series', $series[0]['pod_item_id']);
+    $series = get_the_terms($podcast->field('ID'), 'series');
+    $seriesPod = pods('series', $series[0]->term_id);
     $host = $seriesPod->field('host');
     $voice = $podcast->field('voices');
 
