@@ -52,10 +52,6 @@ $channels = get_terms(array(
         endforeach;
         if ($i%4 != 0) echo '</div>'; ?>
       </div>
-
-      <!-- <div id = "Archived Channels"> 
-        
-     </div>  -->
      
     </main>
   </div>
