@@ -55,7 +55,7 @@ $channels = get_terms(array(
         <div class='row'>
           <div class='col'>
             <h2>Archived Channels</h2>  
-            <a href="<?php echo site_url( '/archived-channels/');?>">Archived</a> 
+            <p>Check out all the <a href="<?php echo site_url( '/archived-channels/');?>">Archived Channels</a></p>
           </div> 
         </div>
      </div>
