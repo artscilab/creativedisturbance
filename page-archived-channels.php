@@ -11,7 +11,9 @@ get_header();
 
 $channels = get_terms(array(
   'taxonomy' => 'series',
-  'hide_empty' => false
+  'hide_empty' => false,
+  'meta_key' => 'archived',
+  'meta_value' => '1'
 ));
 ?>
 
@@ -25,7 +27,9 @@ $channels = get_terms(array(
         <div class="row all-channels-row">
         <?php
         $i = 1;
+       
         foreach ($channels as $channel):
+          
           $media_id = get_term_meta( $channel->term_id, 'podcast_series_image_settings', true );
           $image_attributes = wp_get_attachment_image_src( $media_id, 'large' );
 

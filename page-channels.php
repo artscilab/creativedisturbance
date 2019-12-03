@@ -11,7 +11,9 @@ get_header();
 
 $channels = get_terms(array(
   'taxonomy' => 'series',
-  'hide_empty' => false
+  'hide_empty' => false, 
+   'meta_key' => 'archived',
+   'meta_value' => '0'
 ));
 ?>
 
@@ -49,9 +51,14 @@ $channels = get_terms(array(
         if ($i%4 != 0) echo '</div>'; ?>
       </div>
 
-      <!-- <div id = "Archived Channels"> 
-        
-     </div>  -->
+      <div class='container'>
+        <div class='row'>
+          <div class='col'>
+            <h2>Archived Channels</h2>  
+            <a href="<?php echo site_url( '/archived-channels/');?>">Archived</a> 
+          </div> 
+        </div>
+     </div>
      
     </main>
   </div>
