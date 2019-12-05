@@ -1085,7 +1085,7 @@ hr {
       position: absolute;
       width: 200px;
       height: 200px;
-      background: linear-gradient(to right, rgba(33, 33, 33, 0.1), rgba(33, 33, 33, 0.45) 35%, rgba(33, 33, 33, 0.95) 85%, #212121);
+      background: linear-gradient(to right, rgba(33, 33, 33, 0.1), rgba(33, 33, 33, 0.45) 35%, #212121);
       border-top-left-radius: 5px;
       border-bottom-left-radius: 5px; }
   .recent-podcast-player img {
