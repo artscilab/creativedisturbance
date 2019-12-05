@@ -80,7 +80,9 @@ $recentHosts = array_map($mapFunc, $recentHosts);
           $firstPodcast = $recentPodcasts[0];
           $firstID = $firstPodcast["id"];
           $firstImg = $firstPodcast["src"]; ?>
-          <img class="img-fluid" src="<?php echo $firstImg ?>">
+          <div class="album-art">
+            <img class="img-fluid" src="<?php echo $firstImg ?>">
+          </div>
           <?php
           echo do_shortcode("[podcast_episode episode=\"" . $firstID . "\" content=\"title,player\"]") ?>
         </div>
