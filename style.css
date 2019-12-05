@@ -1063,6 +1063,24 @@ hr {
 .home-recent-people-container {
   margin-bottom: 100px; }
 
+.recent-podcast-player {
+  padding: 25px;
+  margin-top: 50px;
+  text-align: left;
+  border: 3px solid #212121;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row; }
+  .recent-podcast-player img {
+    max-width: 200px;
+    max-height: 200px;
+    margin-right: 15px; }
+  .recent-podcast-player .podcast-episode {
+    margin: 10px 0 0;
+    width: 100%; }
+    .recent-podcast-player .podcast-episode .podcast_player {
+      margin: 25px 0 0; }
+
 .home-map-container {
   margin: 0; }
 
