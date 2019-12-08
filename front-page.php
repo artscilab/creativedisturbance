@@ -33,7 +33,10 @@ while ($recents->fetch()) {
   $country = $recents->display('country');
   $link = $recents->display('guid');
   $countryCode = $recents->field("country");
+  $id = $recents->display("id");
+
   $post = array(
+    "id" => $id,
     "title" => $title,
     "series" => $series,
     "country" => $country,
@@ -69,7 +72,20 @@ $recentHosts = array_map($mapFunc, $recentHosts);
         <h1 class="display-2">Creative Disturbance</h1>
       </div>
       <div class="col-sm-8 site-subtitle">
-        <p>Creative Disturbance is an international, multilingual network and podcast platform supporting collaboration among the arts, sciences, and new technologies communities. </p>
+        <div class="">
+          <p>Creative Disturbance is an international, multilingual network and podcast platform supporting collaboration among the arts, sciences, and new technologies communities. </p>
+        </div>
+        <div class="recent-podcast-player">
+          <?php
+          $firstPodcast = $recentPodcasts[0];
+          $firstID = $firstPodcast["id"];
+          $firstImg = $firstPodcast["src"]; ?>
+          <div class="album-art">
+            <img class="img-fluid" src="<?php echo $firstImg ?>">
+          </div>
+          <?php
+          echo do_shortcode("[podcast_episode episode=\"" . $firstID . "\" content=\"title,player\"]") ?>
+        </div>
       </div>
     </div>
   </div>
