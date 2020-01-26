@@ -77,7 +77,7 @@ Temporary Items
 
 .idea/nsr.iml
 
-
+.well-known/
 .sass-cache/
 
 node_modules/
