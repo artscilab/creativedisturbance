@@ -69,7 +69,7 @@ $recentHosts = array_map($mapFunc, $recentHosts);
   <div class="container">
     <div class="row site-title justify-content-center text-center">
       <div class="col-sm-12">
-        <h1 class="display-2">Creative Disturbance Dev</h1>
+        <h1 class="display-2">Creative Disturbance</h1>
       </div>
       <div class="col-sm-8 site-subtitle">
         <div class="">
