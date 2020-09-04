@@ -112,7 +112,7 @@ while($teamMemberPod->fetch()) {
                 </div>
             </div>
             <div class="row" style="margin-top:100px;">
-                <div class="col-4"><img src="https://dev.creativedisturbance.org/wp-content/uploads/2020/07/IMG_20170520_151743_406.jpg" style="border-radius: 50%; width:100px;
+                <div class="col-4"><img src="https://dev.creativedisturbance.org/wp-content/uploads/2020/09/nimitha_jammula.jpg" style="border-radius: 50%; width:100px;
                     height:100px;"/></div>
                 <div class="col-8">
                     <p class="words">"I've gotten the opportunity to learn a lot of valuable skills"</p>
@@ -162,7 +162,7 @@ while($teamMemberPod->fetch()) {
             <div class="card" style="width: 14rem;height:22rem;">
                 <div class="card-body">
                     <center>
-                        <img src="https://dev.creativedisturbance.org/wp-content/uploads/2020/07/IMG_20170520_151743_406.jpg" style="border-radius: 50%; width:150px;
+                        <img src="https://dev.creativedisturbance.org/wp-content/uploads/2020/09/nimitha_jammula.jpg" style="border-radius: 50%; width:150px;
                                 height:150px;"/>
                         <div class="card-title">Nimitha Jammula</div>
                     </center>
