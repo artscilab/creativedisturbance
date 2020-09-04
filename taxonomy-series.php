@@ -1,4 +1,4 @@
-<?php
+<?php /* Template Name: Taxonomy Series */
 /**
  * The template for displaying archive pages
  *
@@ -10,6 +10,7 @@
 get_header();
 
 $term_id = get_queried_object_id();
+echo $term_id;
 $pod = pods('series', $term_id);
 $hostField = $pod->field('host');
 $hosts = array();

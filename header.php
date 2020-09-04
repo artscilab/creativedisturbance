@@ -15,40 +15,34 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <link rel="profile" href="https://gmpg.org/xfn/11">
-
 	<?php wp_head(); ?>
+    <script
+            src="https://code.jquery.com/jquery-3.5.1.js"
+            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+            crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+   <!--  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"> -->
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'creativedisturbance' ); ?></a>
-
-	<nav role="navigation" id="masthead" class="navbar navbar-dark bg-dark navbar-expand-md">
-      <a class="navbar-brand nav-link" href="<?php echo get_home_url() ?>">
-        <?php if(is_page('Explore') || is_page('Home')) { ?>
-          <img src="<?php echo get_template_directory_uri() . '/img/wordmark_black.png'; ?>" />
-        <?php } else { ?>
-          <img src="<?php echo get_template_directory_uri() . '/img/wordmark_white.png'; ?>" />
-        <?php } ?>
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <?php
-      wp_nav_menu( array(
-        'theme_location'  => 'primary',
-        'depth'	          => 2, // 1 = no dropdowns, 2 = with dropdowns.
-        'container'       => 'div',
-        'container_class' => 'collapse navbar-collapse',
-        'container_id'    => 'navbarSupportedContent',
-        'menu_class'      => 'navbar-nav ml-auto',
-        'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
-        'walker'          => new WP_Bootstrap_Navwalker(),
-      ) );
-      ?>
-  </nav><!-- #site-navigation -->
-
-	<div id="content" class="site-content">
+<nav class="navbar navbar-expand-lg text-white bg-black">
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="http://localhost/wordpress/podcasts/">Podcasts</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost/wordpress/the-disturbed/">The Disturbed</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost/wordpress/home/"><img  id="logo"src = "<?php echo get_template_directory_uri() . '/img/logo.png'; ?>"/></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="http://localhost/wordpress/get-involved/">Get Involved</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="http://localhost/wordpress/about/">About</a>
+            </li>
+        </ul>
+    </div>
+</nav>
