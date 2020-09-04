@@ -35,7 +35,7 @@
                 <a class="nav-link" href="https://dev.creativedisturbance.org/the-disturbed/">The Disturbed</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="https://dev.creativedisturbance.org/home/"><img  id="logo"src = "<?php echo get_template_directory_uri() . '/img/logo.png'; ?>"/></a>
+                <a class="nav-link" href="https://dev.creativedisturbance.org/home-2/"><img  id="logo"src = "<?php echo get_template_directory_uri() . '/img/logo.png'; ?>"/></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link " href="https://dev.creativedisturbance.org/get-involved/">Get Involved</a>

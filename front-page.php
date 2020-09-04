@@ -79,7 +79,7 @@ $recentHosts = array_map($mapFunc, $recentHosts);
 <body <?php body_class(); ?>>
 
     <div class="top" >
-        <center><h4><b>Interested in starting your own podcast?</b> <a href="https://dev.creativedisturbance.org/dummy/">Click Here</a></h4></center>
+        <center><h4><b>Interested in starting your own podcast?</b> <a href="https://dev.creativedisturbance.org/get-involved/">Click Here</a></h4></center>
     </div>
     <div >
         <img src="<?php echo get_template_directory_uri() . '/img/disturbance.png'; ?>" />
