@@ -85,7 +85,7 @@ $recentHosts = array_map($mapFunc, $recentHosts);
         <img src="<?php echo get_template_directory_uri() . '/img/disturbance.png'; ?>" />
         <center><div class="home">
                 <p>Welcome to international, multilingual network and podcast platform that supports collaboration among the arts, science, and new technologies communities.</p>
-                <a href="https://dev.creativedisturbance.org/home/">Learn More</a>
+                <a href="https://dev.creativedisturbance.org/home-2/">Learn More</a>
             </div>
         </center>
     </div>
