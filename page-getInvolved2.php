@@ -10,11 +10,11 @@ get_header();
            <div class="col-1">
         </div>
             <div class="col-3">
-                <a href="http://localhost/wordpress/get-involved"><center> <img class="involve"src="<?php echo get_template_directory_uri() . '/img/head.png'; ?>"  style="width:200px;height:200px;"/></a>
+                <a href="https://dev.creativedisturbance.org/get-involved"><center> <img class="involve"src="<?php echo get_template_directory_uri() . '/img/head.png'; ?>"  style="width:200px;height:200px;"/></a>
                 <h6 class="text-grey">Want to become a podcaster ?</h6></center>
             </div>
             <div class="col-3">
-                <a href="http://localhost/wordpress/get-involved-1/"><center> <img class="involve1"src="<?php echo get_template_directory_uri() . '/img/people.png'; ?>"  style="width:200px;height:200px;"/></a>
+                <a href="https://dev.creativedisturbance.org/get-involved-1/"><center> <img class="involve1"src="<?php echo get_template_directory_uri() . '/img/people.png'; ?>"  style="width:200px;height:200px;"/></a>
                 <h6 class="text-grey">Want to become a part of our team ?</h6></center>
             </div>
             <div class="col-3">

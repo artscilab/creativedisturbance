@@ -112,7 +112,7 @@ while($teamMemberPod->fetch()) {
                 </div>
             </div>
             <div class="row" style="margin-top:100px;">
-                <div class="col-4"><img src="http://localhost/wordpress/wp-content/uploads/2020/07/IMG_20170520_151743_406.jpg" style="border-radius: 50%; width:100px;
+                <div class="col-4"><img src="https://dev.creativedisturbance.org/wp-content/uploads/2020/07/IMG_20170520_151743_406.jpg" style="border-radius: 50%; width:100px;
                     height:100px;"/></div>
                 <div class="col-8">
                     <p class="words">"I've gotten the opportunity to learn a lot of valuable skills"</p>
@@ -153,7 +153,7 @@ while($teamMemberPod->fetch()) {
         <?php endforeach; ?>
   </div>
     <div class="see-more float-right">
-        <a href="http://localhost/wordpress/about/current-team/"><h4>See More <i class="fa fa-chevron-right" aria-hidden="true" style ="color: #FCAE54;font-size:30px;"></i> </h4></a>
+        <a href="https://dev.creativedisturbance.org/about/current-team/"><h4>See More <i class="fa fa-chevron-right" aria-hidden="true" style ="color: #FCAE54;font-size:30px;"></i> </h4></a>
     </div>
     <h1><center>Previous Team</center></h1>
     <hr class="color-yellow">
@@ -162,7 +162,7 @@ while($teamMemberPod->fetch()) {
             <div class="card" style="width: 14rem;height:22rem;">
                 <div class="card-body">
                     <center>
-                        <img src="http://localhost/wordpress/wp-content/uploads/2020/07/IMG_20170520_151743_406.jpg" style="border-radius: 50%; width:150px;
+                        <img src="https://dev.creativedisturbance.org/wp-content/uploads/2020/07/IMG_20170520_151743_406.jpg" style="border-radius: 50%; width:150px;
                                 height:150px;"/>
                         <div class="card-title">Nimitha Jammula</div>
                     </center>

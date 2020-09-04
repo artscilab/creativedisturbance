@@ -29,19 +29,19 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="http://localhost/wordpress/podcasts/">Podcasts</a>
+                <a class="nav-link" href="https://dev.creativedisturbance.org/podcasts/">Podcasts</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="http://localhost/wordpress/the-disturbed/">The Disturbed</a>
+                <a class="nav-link" href="https://dev.creativedisturbance.org/the-disturbed/">The Disturbed</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="http://localhost/wordpress/home/"><img  id="logo"src = "<?php echo get_template_directory_uri() . '/img/logo.png'; ?>"/></a>
+                <a class="nav-link" href="https://dev.creativedisturbance.org/home/"><img  id="logo"src = "<?php echo get_template_directory_uri() . '/img/logo.png'; ?>"/></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="http://localhost/wordpress/get-involved/">Get Involved</a>
+                <a class="nav-link " href="https://dev.creativedisturbance.org/get-involved/">Get Involved</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="http://localhost/wordpress/about/">About</a>
+                <a class="nav-link " href="https://dev.creativedisturbance.org/about/">About</a>
             </li>
         </ul>
     </div>

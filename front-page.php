@@ -1,4 +1,4 @@
-<?php
+<?php 
 //get_header();
 
 $channels = get_terms(array(
@@ -79,13 +79,13 @@ $recentHosts = array_map($mapFunc, $recentHosts);
 <body <?php body_class(); ?>>
 
     <div class="top" >
-        <center><h4><b>Interested in starting your own podcast?</b> <a href="http://localhost/wordpress/dummy/">Click Here</a></h4></center>
+        <center><h4><b>Interested in starting your own podcast?</b> <a href="https://dev.creativedisturbance.org/dummy/">Click Here</a></h4></center>
     </div>
     <div >
         <img src="<?php echo get_template_directory_uri() . '/img/disturbance.png'; ?>" />
         <center><div class="home">
                 <p>Welcome to international, multilingual network and podcast platform that supports collaboration among the arts, science, and new technologies communities.</p>
-                <a href="/home/">Learn More</a>
+                <a href="https://dev.creativedisturbance.org/home/">Learn More</a>
             </div>
         </center>
     </div>
